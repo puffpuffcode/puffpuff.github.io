@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <h1">
+    header
+</h1>
+    <br>
+    <h1>
+    Nginx实战篇
+</h1>
+<p>
+    January 12th 2023
+</p>
+author: null
+<h1 id="使用-Nginx-的正确姿势"><a href="#使用-Nginx-的正确姿势" class="headerlink" title="使用 Nginx 的正确姿势"></a>使用 Nginx 的正确姿势</h1><blockquote>
+<p>运行环境：Fedora 34</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="环境准备-amp-安装"><a href="#环境准备-amp-安装" class="headerlink" title="环境准备 &amp; 安装"></a>环境准备 &amp; 安装</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@fedora34 ~]<span class="comment"># dnf install nginx</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="启动-Nginx"><a href="#启动-Nginx" class="headerlink" title="启动 Nginx"></a>启动 Nginx</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@fedora34 ~]<span class="comment"># systemctl start nginx.service</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查看-Nginx-状态"><a href="#查看-Nginx-状态" class="headerlink" title="查看 Nginx 状态"></a>查看 Nginx 状态</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@fedora34 ~]<span class="comment"># systemctl status nginx.service</span></span><br><span class="line">● nginx.service - The nginx HTTP and reverse proxy server</span><br><span class="line">     Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled; vendor preset: disabled)</span><br><span class="line">     Active: active (running) since Thu 2023-01-12 15:50:57 CST; 1s ago</span><br><span class="line">    Process: 2746392 ExecStartPre=/usr/bin/rm -f /run/nginx.pid (code=exited, status=0/SUCCESS)</span><br><span class="line">    Process: 2746393 ExecStartPre=/usr/sbin/nginx -t (code=exited, status=0/SUCCESS)</span><br><span class="line">    Process: 2746394 ExecStart=/usr/sbin/nginx (code=exited, status=0/SUCCESS)</span><br><span class="line">   Main PID: 2746395 (nginx)</span><br><span class="line">      Tasks: 2 (<span class="built_in">limit</span>: 2333)</span><br><span class="line">     Memory: 4.4M</span><br><span class="line">        CPU: 63ms</span><br><span class="line">    <span class="comment"># 有几个 worker 就表示服务器有几个核心数，可以在配置文件中配置</span></span><br><span class="line">     CGroup: /system.slice/nginx.service</span><br><span class="line">             ├─2746395 nginx: master process /usr/sbin/nginx</span><br><span class="line">             └─2746396 nginx: worker process</span><br></pre></td></tr></table></figure>
+<p>可以看到 Nginx 已经成功启动。</p>
+<p>跳转到服务器地址，出现此页面则为成功配置运行。</p>
+<p><img src="/images/nginx_success.png" alt="图片失效咯"></p>
+<h3 id="将-Nginx-服务设置为每次开机启动"><a href="#将-Nginx-服务设置为每次开机启动" class="headerlink" title="将 Nginx 服务设置为每次开机启动"></a>将 Nginx 服务设置为每次开机启动</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@fedora34 ~]<span class="comment"># systemctl enable nginx</span></span><br><span class="line">Created symlink /etc/systemd/system/multi-user.target.wants/nginx.service → /usr/lib/systemd/system/nginx.service.</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> nginx <span class="comment"># 将 nginx 作为服务</span></span><br><span class="line">systemctl status nginx <span class="comment"># 查看 nginx 状态</span></span><br><span class="line">nginx -v <span class="comment"># 查看 nginx 版本</span></span><br><span class="line">nginx -V <span class="comment"># 查看 nginx 版本以及配置选项</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="简单配置"><a href="#简单配置" class="headerlink" title="简单配置"></a>简单配置</h2><p>首先进入 Nginx 配置目录下，并且新建一个配置文件 <code>hello.conf</code>，填入以下配置。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@fedora34 /]<span class="comment"># cd /etc/nginx/conf.d/</span></span><br><span class="line">[root@fedora34 conf.d]<span class="comment"># vim hello.conf</span></span><br><span class="line"></span><br><span class="line">server&#123;</span><br><span class="line">        listen 81;</span><br><span class="line">        location / &#123;</span><br><span class="line">                root /home/;</span><br><span class="line">                index index.htm index.html;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>完成后使用 <code>nginx -t</code> 测试配置文件是否正确。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@fedora34 conf.d]<span class="comment"># nginx -t</span></span><br><span class="line">nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</span><br><span class="line">nginx: configuration file /etc/nginx/nginx.conf <span class="built_in">test</span> is successful</span><br></pre></td></tr></table></figure>
+
+<p>通过测试后重新加载配置文件 <code>nginx -s reload</code> 。</p>
+<hr>
+<p>先写到这，发现得先去补一下正则的知识。</p>
+
+    <br>
+    Footer
+</body>
+</html>

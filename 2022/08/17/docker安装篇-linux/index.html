@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <h1">
+    header
+</h1>
+    <br>
+    <h1>
+    Docker安装-linux篇
+</h1>
+<p>
+    August 17th 2022
+</p>
+author: undefined
+<h3 id="此文参考官方文档"><a href="#此文参考官方文档" class="headerlink" title="此文参考官方文档"></a>此文参考<a target="_blank" rel="noopener" href="https://docs.docker.com/desktop/install/linux-install/">官方文档</a></h3><p>点击当前的linux版本对应的安装指引。本文使用<code>Ubuntu 22.04LTS</code>。</p>
+<hr>
+<h3 id="安装Docker-Desktop"><a href="#安装Docker-Desktop" class="headerlink" title="安装Docker Desktop"></a>安装Docker Desktop</h3><blockquote>
+<p>Docker Desktop包括：Docker Engine，Docker CLI client，Docker Compose，Docker Content Trust，Kubernetes，Credential Helper。<br><code>如果只需要安装Docker Engine可以跳过这一步。</code><br>这里和顺带一提，<code>Docker Desktop</code>在<code>linux</code>也运行虚拟机，确保提供跨平台的一致体验。用户想要 Docker Desktop for Linux (DD4L) 最常被引用的原因是为了确保在所有主要操作系统中具有一致的 Docker Desktop 体验和功能对等。使用 VM 可确保 Linux 用户的 Docker 桌面体验与 Windows 和 macOS 的体验非常接近。</p>
+</blockquote>
+<p>首先要完全清除旧版本以及配置，包括<code>docker-desktop</code>和<code>docker.cli</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt remove docker-desktop</span><br><span class="line"><span class="built_in">rm</span> -r <span class="variable">$HOME</span>/.docker/desktop</span><br><span class="line">sudo <span class="built_in">rm</span> /usr/local/bin/com.docker.cli</span><br><span class="line">sudo apt purge docker-desktop</span><br></pre></td></tr></table></figure>
+<p>如果未安装<code>gnome</code>桌面环境，提前安装<code>gnome-terminal</code>，执行以下命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install gnome-terminal</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>接下来设置<code>apt repository</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg \</span><br><span class="line">    lsb-release</span><br><span class="line">sudo <span class="built_in">mkdir</span> -p /etc/apt/keyrings</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gp </span><br><span class="line"><span class="built_in">echo</span> \</span><br><span class="line"><span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \</span></span><br><span class="line"><span class="string"><span class="subst">$(lsb_release -cs)</span> stable&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/docker.list &gt; /dev/null </span><br></pre></td></tr></table></figure>
+<p>并下载最新DEB包，<a target="_blank" rel="noopener" href="https://docs.docker.com/desktop/install/ubuntu/">链接在这</a>。下载完成后在下载目录执行以下命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install ./docker-desktop-&lt;version&gt;-&lt;<span class="built_in">arch</span>&gt;.deb</span><br></pre></td></tr></table></figure>
+<p>在菜单中出现<code>Docker Desktop</code>，安装完成！</p>
+<hr>
+<h3 id="Docker-Engine"><a href="#Docker-Engine" class="headerlink" title="Docker Engine"></a>Docker Engine</h3><blockquote>
+<p>安装<code>Docker Engine</code>比起以上简单些许，官方为我们提供了安装脚本。</p>
+</blockquote>
+<p>首先打开<code>Docker Engine</code><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/">安装文档</a>，选择当前对应的安装环境，这里用<code>Ubuntu</code>演示。<br><img src="/images/docker-engine.png" alt="┭┮﹏┭┮图片失效了..">  </p>
+<p>移除旧版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure>
+<p>下载脚本到当前目录，并且执行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com -o get-docker.sh</span><br><span class="line">DRY_RUN=1 sh ./get-docker.sh</span><br></pre></td></tr></table></figure>
+<p>安装完成！接着是收尾工作。<br>非root权限用户如要获取访问Docker的权限，做接下来的步骤。<br>创建<code>docker group</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></figure>
+<p>将用户添加到组。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
+<p>要使其生效，需要<code>重启电脑，或者是完全注销当前用户，还可以运行以下命令激活对组的修改</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">newgrp docker </span><br></pre></td></tr></table></figure>
+<p>如果在将用户添加到<code>docker</code>组之前最初使用<code>sudo</code>运行<code>Docker CLI</code>命令，可能会看到以下错误，这表明<code>~/.docker/</code>目录是由于<code>sudo</code>命令而使用不正确的权限创建的。需要修复。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chown</span> <span class="string">&quot;<span class="variable">$USER</span>&quot;</span>:<span class="string">&quot;<span class="variable">$USER</span>&quot;</span> /home/<span class="string">&quot;<span class="variable">$USER</span>&quot;</span>/.docker -R</span><br><span class="line">sudo <span class="built_in">chmod</span> g+rwx <span class="string">&quot;<span class="variable">$HOME</span>/.docker&quot;</span> -R</span><br></pre></td></tr></table></figure>
+<p>之后试着运行以下命令吧！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">ryokutya@ice-tea:~$ docker run hello-world</span><br><span class="line">Unable to find image <span class="string">&#x27;hello-world:latest&#x27;</span> locally</span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line">2db29710123e: Pull complete </span><br><span class="line">Digest: sha256:7d246653d0511db2a6b2e0436cfd0e52ac8c066000264b3ce63331ac66dca625</span><br><span class="line">Status: Downloaded newer image <span class="keyword">for</span> hello-world:latest</span><br><span class="line"></span><br><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the <span class="string">&quot;hello-world&quot;</span> image from the Docker Hub.</span><br><span class="line">    (amd64)</span><br><span class="line"> 3. The Docker daemon created a new container from that image <span class="built_in">which</span> runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, <span class="built_in">which</span> sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"> $ docker run -it ubuntu bash</span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker ID:</span><br><span class="line"> https://hub.docker.com/</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/get-started/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>至此，简单安装及配置已完成！</p>
+<blockquote>
+<p>另外，要使<code>Docker</code>开机自启动，将其作为守护进程开启。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> docker.service</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> containerd.service</span><br></pre></td></tr></table></figure>
+    <br>
+    Footer
+</body>
+</html>
