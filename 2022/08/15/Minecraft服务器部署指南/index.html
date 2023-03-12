@@ -68,13 +68,12 @@
             <blockquote>
 <p>Ryokutya心血来潮，且邀请许久不联系的小伙伴开始了MC之旅~</p>
 </blockquote>
+<span id="more"></span>
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>首先需要准备一台全新的服务器 * 嘶哈嘶哈 *，当然不可能在本地部署对吧。这里我用虚拟机模拟在远程服务器终端上的操作。</p>
 <blockquote>
 <p>运行环境 <code>Ubuntu 20.04LTS</code>，版本较新就行，不重要捏。</p>
 </blockquote>
 <p>众所周知，<code>Minecraft</code>是用<code>Java</code>开发的。那么第一步，先安装<code>JDK</code>。它是Java的开发工具包，包括了Java运行环境<code>JRE</code>，Java工具（javac&#x2F;java&#x2F;jdb等），还有Java的基础API。<br>那么直接安装<code>JRE</code>也是没有关系的，这里演示如何安装<code>JDK</code>的过程。</p>
-<span id="more"></span>
-
 <h3 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h3><p>首先打开Oracle官网的<a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/downloads/">JDK下载页面</a>，获取下载连接。由于要将Minecraft部署在linux服务器上，选择Linux对应的<code>x64 Compressed Archive</code>就行啦。<br><img src="/images/jdk_install.png" alt="┭┮﹏┭┮图片失效了.."><br>那么我们复制右边对应的链接，下载JDK到当前目录。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>下载可能会有些小慢，耐心等待下载完成。之后在当前路径下找到<code>jdk-18_linux-x64_bin.tar.gz</code>，将其解压到<code>/usr/local</code>下。</p>
