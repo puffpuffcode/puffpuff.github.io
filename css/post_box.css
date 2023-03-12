@@ -28,6 +28,11 @@
     display: flex;
     align-items: center;
     margin-bottom: 12px;
+    flex-flow: wrap;
+}
+
+.article_tags > * {
+    flex-shrink: 0;
 }
 
 .article_tags > .icon {

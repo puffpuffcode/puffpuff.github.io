@@ -1,0 +1,17 @@
+.welcome {
+    background-color: #f2a3b3;
+    margin-bottom: -165px;
+}
+.hello {
+    width: 1140px;
+    margin: 0 auto;
+    padding: 65px 20px 165px 20px;
+}
+.hello > * {
+    color: white;
+}
+.hello > .title {
+    font-size: 42px;
+    font-weight: bold;
+    text-decoration: underline;
+}
