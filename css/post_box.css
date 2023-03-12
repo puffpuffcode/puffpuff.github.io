@@ -42,3 +42,7 @@
 .article_tags > .tag {
     margin-right: 6px;
 }
+
+img {
+    margin: 5px 0 3px 0;
+}
