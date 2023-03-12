@@ -37,6 +37,12 @@ code {
     font-family: 'Courier';
 }
 
+blockquote {
+    background-color: #fdedf2;
+    padding: 0.1em 1em;
+    margin: 0.4em 0;
+}
+
 p {
     margin: 9px 0;
     line-height: 1.7em;

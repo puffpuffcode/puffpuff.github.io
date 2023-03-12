@@ -89,9 +89,7 @@
         
             <div class="post_box">
     <li>
-        <h4 class="publish_time">
-            Mar 12th 2023
-        </h4>
+          
 
         <h1 class="post_title">
             <a href="/2022/08/17/docker%E5%AE%89%E8%A3%85%E7%AF%87-linux/">
@@ -99,39 +97,10 @@
             </a>
         </h1>
         
-        <div class="article_tags">
-            <svg t="1678608264113" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2767" width="200" height="200"><path d="M796.992 497.696l-333.376 333.44h-0.128L191.904 559.68l333.44-333.44C533.472 225.408 553.6 224 601.28 224c82.24 0 191.68 4 193.824 5.12 4.16 111.296 5.824 236.896 1.92 268.576m62.08-269.76c0-35.2-28.64-63.84-62.656-63.84h-0.064C795.296 164.064 684.704 160 601.28 160c-96.16 0-104.8 4.64-115.2 15.04L146.656 514.464c-24.96 24.96-24.896 65.6 0.16 90.656l271.232 271.232c12.16 12.128 28.256 18.784 45.44 18.784 17.152 0 33.184-6.624 45.184-18.624l339.424-339.424c11.2-11.2 21.76-21.76 10.976-309.152" fill="#3D3A39" p-id="2768"></path><path d="M609.376 440.288c-26.464 0-48-21.536-48-48s21.536-48 48-48 48 21.536 48 48-21.536 48-48 48m0-160c-61.76 0-112 50.24-112 112s50.24 112 112 112 112-50.24 112-112-50.24-112-112-112" fill="#3D3A39" p-id="2769"></path></svg>
-            
-                <a class="tag" href="/tags/Docker">
-                    Docker
-                </a>
-            
-                <a class="tag" href="/tags/Linux">
-                    Linux
-                </a>
-            
-        </div>
-        <h3 id="此文参考官方文档"><a href="#此文参考官方文档" class="headerlink" title="此文参考官方文档"></a>此文参考<a target="_blank" rel="noopener" href="https://docs.docker.com/desktop/install/linux-install/">官方文档</a></h3><p>点击当前的linux版本对应的安装指引。本文使用<code>Ubuntu 22.04LTS</code>。</p>
-<hr>
-<h3 id="安装Docker-Desktop"><a href="#安装Docker-Desktop" class="headerlink" title="安装Docker Desktop"></a>安装Docker Desktop</h3><blockquote>
-<p>Docker Desktop包括：Docker Engine，Docker CLI client，Docker Compose，Docker Content Trust，Kubernetes，Credential Helper。<br><code>如果只需要安装Docker Engine可以跳过这一步。</code><br>这里和顺带一提，<code>Docker Desktop</code>在<code>linux</code>也运行虚拟机，确保提供跨平台的一致体验。用户想要 Docker Desktop for Linux (DD4L) 最常被引用的原因是为了确保在所有主要操作系统中具有一致的 Docker Desktop 体验和功能对等。使用 VM 可确保 Linux 用户的 Docker 桌面体验与 Windows 和 macOS 的体验非常接近。</p>
-</blockquote>
-<p>首先要完全清除旧版本以及配置，包括<code>docker-desktop</code>和<code>docker.cli</code>。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> remove docker-desktop
-<span class="token function">rm</span> <span class="token parameter variable">-r</span> <span class="token environment constant">$HOME</span>/.docker/desktop
-<span class="token function">sudo</span> <span class="token function">rm</span> /usr/local/bin/com.docker.cli
-<span class="token function">sudo</span> <span class="token function">apt</span> purge docker-desktop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>如果未安装<code>gnome</code>桌面环境，提前安装<code>gnome-terminal</code>，执行以下命令。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> gnome-terminal<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
         
-            <a href="/2022/08/17/docker%E5%AE%89%E8%A3%85%E7%AF%87-linux/" style="font-weight: bold;">See More</a>
         
     </li>
 </div>
-
-<style>
-    
-</style>
                 
     </ul>
     <div class="sider">
