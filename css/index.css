@@ -7,10 +7,12 @@
     font-family: 'Courier';
     src: url(../font/CourierPrime-Regular.ttf);
 }
+
 @font-face {
     font-family: 'Noto Sans Mono';
     src: url(../font/NotoSansMono-Regular.ttf);
 }
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -44,30 +46,47 @@ a {
     text-underline-offset: 0.18em;
 }
 
-h1 {
-    font-size: 30px;
-    margin: 8px 0;
-}
-
-h2 {
-    font-size: 27px;
-    margin: 8px 0;
-}
-
-h3 {
-    font-size: 24px;
-    margin: 8px 0;
-}
-
-h4 {
-    font-size: 21px;
-    margin: 8px 0;
-}
-
+h1,
+h2,
+h3,
+h4,
 h5 {
-    font-size: 18px;
     margin: 8px 0;
 }
+
+
+@media screen and (max-width: 476px) {
+    h1 {
+        font-size: 5.5vw;
+        margin: 8px 0;
+    }
+
+    h2 {
+        font-size: 5vw;
+        margin: 8px 0;
+    }
+
+    h3 {
+        font-size: 4.5vw;
+        margin: 8px 0;
+    }
+
+    h4 {
+        font-size: 4vw;
+        margin: 8px 0;
+    }
+
+    h5 {
+        font-size: 3.5vw;
+        margin: 8px 0;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+}
+
+
 
 .icon {
     width: 19px;
