@@ -1,18 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>
+        Puff Puff's Note
+    </title>
+    <link rel="stylesheet" href="/prism/prism.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/post_box.css">
+    <script src="/prism/prism.js"></script>
 <meta name="generator" content="Hexo 6.3.0"></head>
+
 <body>
-    <h1">
-    header
-</h1>
-    <br>
-    <h1>THIS IS A TAG</h1>
-    <br>
-    Footer
+    <div class="background" style="background-color: #FEF8F9;"></div>
+
+
+<style>
+    .background {
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Cpath fill-opacity='.07' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'/%3E%3C/svg%3E");
+    }
+</style>
+    <nav>
+    <div class="links">
+        <a href="/">"Home"</a>
+        <a href="/links">"Links"</a>
+        <a href="">"RSS"</a>
+    </div>
+</nav>
+
+
+<style>
+    nav {
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        background-color: white;
+    }
+
+    .links {
+        margin: 0 auto;
+        padding: 15px 20px;
+        max-width: 1140px;
+    }
+
+    nav a {
+        font-size: 16px;
+        font-weight: bold;
+        color: #F2A3B3;
+        padding-right: 13px;
+    }
+</style>
+    <div class="welcome">
+    <div class="hello">
+        <div class="title">Puff Puff's Note</div>
+        <div class="subtitle">Greet this day with love and hope.</div>
+    </div>
+</div>
+
+<style>
+    .welcome {
+        background-color: #f2a3b3;
+        margin-bottom: -165px;
+    }
+    .hello {
+        width: 1140px;
+        margin: 0 auto;
+        padding: 65px 20px 165px 20px;
+    }
+    .hello > * {
+        color: white;
+    }
+    .hello > .title {
+        font-size: 42px;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+</style>
+    
+
+<div class="main">
+    <ul class="posts">
+        
+            <div class="post_box">
+    <li>
+        <h4 class="publish_time">
+            Mar 12th 2023
+        </h4>
+
+        <div class="post_title">
+            <a href="2022/08/17/docker安装篇-linux/">
+                Docker安装-linux篇
+            </a>
+        </div>
+        
+        <div class="article_tags">
+            <svg t="1678608264113" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2767" width="200" height="200"><path d="M796.992 497.696l-333.376 333.44h-0.128L191.904 559.68l333.44-333.44C533.472 225.408 553.6 224 601.28 224c82.24 0 191.68 4 193.824 5.12 4.16 111.296 5.824 236.896 1.92 268.576m62.08-269.76c0-35.2-28.64-63.84-62.656-63.84h-0.064C795.296 164.064 684.704 160 601.28 160c-96.16 0-104.8 4.64-115.2 15.04L146.656 514.464c-24.96 24.96-24.896 65.6 0.16 90.656l271.232 271.232c12.16 12.128 28.256 18.784 45.44 18.784 17.152 0 33.184-6.624 45.184-18.624l339.424-339.424c11.2-11.2 21.76-21.76 10.976-309.152" fill="#3D3A39" p-id="2768"></path><path d="M609.376 440.288c-26.464 0-48-21.536-48-48s21.536-48 48-48 48 21.536 48 48-21.536 48-48 48m0-160c-61.76 0-112 50.24-112 112s50.24 112 112 112 112-50.24 112-112-50.24-112-112-112" fill="#3D3A39" p-id="2769"></path></svg>
+            
+                <a class="tag" href="/tags/Docker">
+                    Docker
+                </a>
+            
+                <a class="tag" href="/tags/Linux">
+                    Linux
+                </a>
+            
+        </div>
+        <h3 id="此文参考官方文档"><a href="#此文参考官方文档" class="headerlink" title="此文参考官方文档"></a>此文参考<a target="_blank" rel="noopener" href="https://docs.docker.com/desktop/install/linux-install/">官方文档</a></h3><p>点击当前的linux版本对应的安装指引。本文使用<code>Ubuntu 22.04LTS</code>。</p>
+<hr>
+<h3 id="安装Docker-Desktop"><a href="#安装Docker-Desktop" class="headerlink" title="安装Docker Desktop"></a>安装Docker Desktop</h3><blockquote>
+<p>Docker Desktop包括：Docker Engine，Docker CLI client，Docker Compose，Docker Content Trust，Kubernetes，Credential Helper。<br><code>如果只需要安装Docker Engine可以跳过这一步。</code><br>这里和顺带一提，<code>Docker Desktop</code>在<code>linux</code>也运行虚拟机，确保提供跨平台的一致体验。用户想要 Docker Desktop for Linux (DD4L) 最常被引用的原因是为了确保在所有主要操作系统中具有一致的 Docker Desktop 体验和功能对等。使用 VM 可确保 Linux 用户的 Docker 桌面体验与 Windows 和 macOS 的体验非常接近。</p>
+</blockquote>
+<p>首先要完全清除旧版本以及配置，包括<code>docker-desktop</code>和<code>docker.cli</code>。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> remove docker-desktop
+<span class="token function">rm</span> <span class="token parameter variable">-r</span> <span class="token environment constant">$HOME</span>/.docker/desktop
+<span class="token function">sudo</span> <span class="token function">rm</span> /usr/local/bin/com.docker.cli
+<span class="token function">sudo</span> <span class="token function">apt</span> purge docker-desktop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果未安装<code>gnome</code>桌面环境，提前安装<code>gnome-terminal</code>，执行以下命令。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> gnome-terminal<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+        
+            <a href="/2022/08/17/docker%E5%AE%89%E8%A3%85%E7%AF%87-linux/" style="font-weight: bold;">See More</a>
+        
+    </li>
+</div>
+
+<style>
+    
+</style>
+                
+    </ul>
+    <div class="sider">
+        <div class="archives">
+            <div class="sider_box">
+    <span>
+        Archives
+    </span>
+   <a class="av_date-link" href="/archives/2023/03/">March 2023</a><a class="av_date-link" href="/archives/2023/01/">January 2023</a><a class="av_date-link" href="/archives/2022/08/">August 2022</a>
+</div>
+<style>
+    .sider_box {
+        display: flex;
+        border: 1px solid rgb(244, 233, 233);
+        flex-direction: column;
+        flex-shrink: 0;
+        padding: 15px 20px;
+        border-radius: 13px;
+        margin-bottom: 20px;
+        background-color: white;
+        box-shadow: 0.5px 0.5px 3px rgb(231, 220, 220);
+    }
+    .sider_box:hover {
+        box-shadow: 0.5px 0.5px 5px rgb(228, 213, 213),
+            -0.5px -0.5px 5px rgb(228, 213, 213);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+    
+</style>
+        </div>
+        <div class="tags">
+            <div class="sider_box">
+    <span>
+        Tags
+    </span>
+   <a class="tag-link" href="/tags/Docker/" rel="tag">Docker</a><a class="tag-link" href="/tags/Game/" rel="tag">Game</a><a class="tag-link" href="/tags/Gin/" rel="tag">Gin</a><a class="tag-link" href="/tags/Golang/" rel="tag">Golang</a><a class="tag-link" href="/tags/Linux/" rel="tag">Linux</a><a class="tag-link" href="/tags/Minecraft/" rel="tag">Minecraft</a><a class="tag-link" href="/tags/Nginx/" rel="tag">Nginx</a><a class="tag-link" href="/tags/hello/" rel="tag">hello</a><a class="tag-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a>
+</div>
+<style>
+    .sider_box {
+        display: flex;
+        border: 1px solid rgb(244, 233, 233);
+        flex-direction: column;
+        flex-shrink: 0;
+        padding: 15px 20px;
+        border-radius: 13px;
+        margin-bottom: 20px;
+        background-color: white;
+        box-shadow: 0.5px 0.5px 3px rgb(231, 220, 220);
+    }
+    .sider_box:hover {
+        box-shadow: 0.5px 0.5px 5px rgb(228, 213, 213),
+            -0.5px -0.5px 5px rgb(228, 213, 213);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+    
+</style>
+        </div>
+    </div>
+</div>
+
+<style>
+    .main {
+        display: flex;
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 25px 20px;
+    }
+
+    .posts {
+        list-style: none;
+        flex: 1 1 auto;
+        max-width: 800px;
+    }
+
+    .sider {
+        width: 288px;
+        margin-left: 20px;
+    }
+
+    @media only screen and (max-width: 968px) {
+        .main {
+            display: block;
+        }
+
+        .posts {
+            max-width: unset;
+        }
+
+        .posts>.post_box {
+            width: 100%;
+        }
+    }
+
+
+
+    @media only screen and (max-width: 968px) {
+        .sider {
+            width: 100%;
+            margin: 0;
+        }
+    }
+</style>
 </body>
+
+
 </html>

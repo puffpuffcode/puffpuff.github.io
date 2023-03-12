@@ -1,0 +1,35 @@
+.main {
+    display: flex;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 25px 20px;
+}
+
+.posts {
+    list-style: none;
+    flex: 1 1 auto;
+    max-width: 800px;
+}
+
+.sider {
+    margin-left: 20px;
+    width: 288px;
+}
+
+@media only screen and (max-width: 968px) {
+    .main {
+        display: block;
+    }
+
+    .posts {
+        max-width: unset;
+    }
+
+    .posts>.post_box {
+        width: 100%;
+    }
+    .sider {
+        width: 100%;
+        margin: 0;
+    }
+}

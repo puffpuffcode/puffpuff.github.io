@@ -1,24 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>
+        Puff Puff's Note
+    </title>
+    <link rel="stylesheet" href="/prism/prism.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/post_box.css">
+    <script src="/prism/prism.js"></script>
 <meta name="generator" content="Hexo 6.3.0"></head>
+
 <body>
-    <h1">
-    header
-</h1>
-    <br>
-    <h1>
-    Minecraft服务器部署指南
-</h1>
-<p>
-    August 15th 2022
-</p>
-author: undefined
-<blockquote>
+    <div class="background" style="background-color: #FEF8F9;"></div>
+
+
+<style>
+    .background {
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Cpath fill-opacity='.07' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'/%3E%3C/svg%3E");
+    }
+</style>
+    <nav>
+    <div class="links">
+        <a href="/">"Home"</a>
+        <a href="/links">"Links"</a>
+        <a href="">"RSS"</a>
+    </div>
+</nav>
+
+
+<style>
+    nav {
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        background-color: white;
+    }
+
+    .links {
+        margin: 0 auto;
+        padding: 15px 20px;
+        max-width: 1140px;
+    }
+
+    nav a {
+        font-size: 16px;
+        font-weight: bold;
+        color: #F2A3B3;
+        padding-right: 13px;
+    }
+</style>
+    <div class="welcome">
+    <div class="hello">
+        <div class="title">Puff Puff's Note</div>
+        <div class="subtitle">Greet this day with love and hope.</div>
+    </div>
+</div>
+
+<style>
+    .welcome {
+        background-color: #f2a3b3;
+        margin-bottom: -165px;
+    }
+    .hello {
+        width: 1140px;
+        margin: 0 auto;
+        padding: 65px 20px 165px 20px;
+    }
+    .hello > * {
+        color: white;
+    }
+    .hello > .title {
+        font-size: 42px;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+</style>
+    <div class="main">
+    <ul class="posts">
+        <div class="post_box">
+    <li>
+        <h4 class="publish_time">
+            Aug 15th 2022
+        </h4>
+
+        <div class="post_title">
+            <a href="2022/08/15/Minecraft服务器部署指南/">
+                Minecraft服务器部署指南
+            </a>
+        </div>
+        
+        <div class="article_tags">
+            <svg t="1678608264113" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2767" width="200" height="200"><path d="M796.992 497.696l-333.376 333.44h-0.128L191.904 559.68l333.44-333.44C533.472 225.408 553.6 224 601.28 224c82.24 0 191.68 4 193.824 5.12 4.16 111.296 5.824 236.896 1.92 268.576m62.08-269.76c0-35.2-28.64-63.84-62.656-63.84h-0.064C795.296 164.064 684.704 160 601.28 160c-96.16 0-104.8 4.64-115.2 15.04L146.656 514.464c-24.96 24.96-24.896 65.6 0.16 90.656l271.232 271.232c12.16 12.128 28.256 18.784 45.44 18.784 17.152 0 33.184-6.624 45.184-18.624l339.424-339.424c11.2-11.2 21.76-21.76 10.976-309.152" fill="#3D3A39" p-id="2768"></path><path d="M609.376 440.288c-26.464 0-48-21.536-48-48s21.536-48 48-48 48 21.536 48 48-21.536 48-48 48m0-160c-61.76 0-112 50.24-112 112s50.24 112 112 112 112-50.24 112-112-50.24-112-112-112" fill="#3D3A39" p-id="2769"></path></svg>
+            
+                <a class="tag" href="/tags/Minecraft">
+                    Minecraft
+                </a>
+            
+                <a class="tag" href="/tags/%E9%83%A8%E7%BD%B2">
+                    部署
+                </a>
+            
+                <a class="tag" href="/tags/Game">
+                    Game
+                </a>
+            
+        </div>
+        <blockquote>
 <p>Ryokutya心血来潮，且邀请许久不联系的小伙伴开始了MC之旅~</p>
 </blockquote>
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>首先需要准备一台全新的服务器 * 嘶哈嘶哈 *，当然不可能在本地部署对吧。这里我用虚拟机模拟在远程服务器终端上的操作。</p>
@@ -29,15 +125,17 @@ author: undefined
 <span id="more"></span>
 
 <h3 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h3><p>首先打开Oracle官网的<a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/downloads/">JDK下载页面</a>，获取下载连接。由于要将Minecraft部署在linux服务器上，选择Linux对应的<code>x64 Compressed Archive</code>就行啦。<br><img src="/images/jdk_install.png" alt="┭┮﹏┭┮图片失效了.."><br>那么我们复制右边对应的链接，下载JDK到当前目录。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.tar.gz</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>下载可能会有些小慢，耐心等待下载完成。之后在当前路径下找到<code>jdk-18_linux-x64_bin.tar.gz</code>，将其解压到<code>/usr/local</code>下。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -zxvf jdk-18_linux-x64_bin.tar.gz -C /usr/local</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> jdk-18_linux-x64_bin.tar.gz <span class="token parameter variable">-C</span> /usr/local<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>之后进入<code>/usr/local</code>目录下，查看当前JDK文件夹名称<code>jdk-18.0.2</code>，并记住这个文件夹，之后一步要用到。<br>最后一步就是配置环境变量啦。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/local/jdk-18.0.2 <span class="comment">#这个jdk-18.0.2就是上边解压出来的文件夹</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>:<span class="variable">$JAVA_HOME</span>/bin:</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">JAVA_HOME</span><span class="token operator">=</span>/usr/local/jdk-18.0.2 <span class="token comment">#这个jdk-18.0.2就是上边解压出来的文件夹</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable">$JAVA_HOME</span><span class="token builtin class-name">:</span><span class="token variable">$JAVA_HOME</span>/bin:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>配置完成后，在控制台中输入<code>java -version</code>出现三行，<code>JDK</code>安装成功了！</p>
 <h3 id="下载Minecraft-server-jar"><a href="#下载Minecraft-server-jar" class="headerlink" title="下载Minecraft_server.jar"></a>下载Minecraft_server.jar</h3><p>点击<a target="_blank" rel="noopener" href="https://www.minecraft.net/zh-hans/download/server">这里</a>进入下载页面，或者你有其他的版本的jar包，那么直接放到服务器上。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~ <span class="comment">#切换到家目录</span></span><br><span class="line">wget  https://piston-data.mojang.com/v1/objects/f69c284232d7c7580bd89a5a4931c3581eae1378/server.jar <span class="comment">#下载官方jar包</span></span><br></pre></td></tr></table></figure>
-<h3 id="启动Minecraft"><a href="#启动Minecraft" class="headerlink" title="启动Minecraft"></a>启动Minecraft</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Xmx1024M -Xms1024M -jar minecraft_server.1.19.2.jar --nogui --port 19999  <span class="comment">#一条命令就启动啦！</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> ~ <span class="token comment">#切换到家目录</span>
+<span class="token function">wget</span>  https://piston-data.mojang.com/v1/objects/f69c284232d7c7580bd89a5a4931c3581eae1378/server.jar <span class="token comment">#下载官方jar包</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="启动Minecraft"><a href="#启动Minecraft" class="headerlink" title="启动Minecraft"></a>启动Minecraft</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">java</span> <span class="token parameter variable">-Xmx1024M</span> <span class="token parameter variable">-Xms1024M</span> <span class="token parameter variable">-jar</span> minecraft_server.1.19.2.jar <span class="token parameter variable">--nogui</span> <span class="token parameter variable">--port</span> <span class="token number">19999</span>  <span class="token comment">#一条命令就启动啦！</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>具体的启动参数请参考<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/wiki/Tutorials/Setting_up_a_server#Java_options">官方文档</a>。</p>
 <h3 id="别忘了开放服务器端口！"><a href="#别忘了开放服务器端口！" class="headerlink" title="别忘了开放服务器端口！"></a>别忘了开放服务器端口！</h3><p>进入云服务器的控制台，开放端口（19999），部署就完成了！</p>
 <hr>
@@ -45,7 +143,72 @@ author: undefined
 <p>另外还有docker部署的方式，之后写吧，🕊。  </p>
 </blockquote>
 
-    <br>
-    Footer
+        
+    </li>
+</div>
+
+<style>
+    
+</style>
+    </ul>
+    <div class="sider">
+        <div class="archives">
+            <div class="sider_box">
+    <span>
+        Archives
+    </span>
+   <a class="av_date-link" href="/archives/2023/03/">March 2023</a><a class="av_date-link" href="/archives/2023/01/">January 2023</a><a class="av_date-link" href="/archives/2022/08/">August 2022</a>
+</div>
+<style>
+    .sider_box {
+        display: flex;
+        border: 1px solid rgb(244, 233, 233);
+        flex-direction: column;
+        flex-shrink: 0;
+        padding: 15px 20px;
+        border-radius: 13px;
+        margin-bottom: 20px;
+        background-color: white;
+        box-shadow: 0.5px 0.5px 3px rgb(231, 220, 220);
+    }
+    .sider_box:hover {
+        box-shadow: 0.5px 0.5px 5px rgb(228, 213, 213),
+            -0.5px -0.5px 5px rgb(228, 213, 213);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+    
+</style>
+        </div>
+        <div class="tags">
+            <div class="sider_box">
+    <span>
+        Tags
+    </span>
+   <a class="tag-link" href="/tags/Docker/" rel="tag">Docker</a><a class="tag-link" href="/tags/Game/" rel="tag">Game</a><a class="tag-link" href="/tags/Gin/" rel="tag">Gin</a><a class="tag-link" href="/tags/Golang/" rel="tag">Golang</a><a class="tag-link" href="/tags/Linux/" rel="tag">Linux</a><a class="tag-link" href="/tags/Minecraft/" rel="tag">Minecraft</a><a class="tag-link" href="/tags/Nginx/" rel="tag">Nginx</a><a class="tag-link" href="/tags/hello/" rel="tag">hello</a><a class="tag-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a>
+</div>
+<style>
+    .sider_box {
+        display: flex;
+        border: 1px solid rgb(244, 233, 233);
+        flex-direction: column;
+        flex-shrink: 0;
+        padding: 15px 20px;
+        border-radius: 13px;
+        margin-bottom: 20px;
+        background-color: white;
+        box-shadow: 0.5px 0.5px 3px rgb(231, 220, 220);
+    }
+    .sider_box:hover {
+        box-shadow: 0.5px 0.5px 5px rgb(228, 213, 213),
+            -0.5px -0.5px 5px rgb(228, 213, 213);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+    
+</style>
+        </div>
+    </div>
+</div>
 </body>
+
+
 </html>

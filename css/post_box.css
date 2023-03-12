@@ -1,0 +1,39 @@
+.post_title {
+    margin: 8px 0 10px 0;
+}
+.post_title a {
+    font-size: 30px; 
+    font-weight: bold;
+}
+.post_box {
+    padding: 15px 20px;
+    border-radius: 13px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(244, 233, 233);
+    background-color: white;
+    box-shadow: 0.5px 0.5px 3px rgb(231, 220, 220);
+}
+
+.post_box:hover {
+    box-shadow: 0.5px 0.5px 5px rgb(228, 213, 213),
+        -0.5px -0.5px 5px rgb(228, 213, 213);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.post_box img {
+    width: 100%;
+}
+
+.article_tags {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.article_tags > .icon {
+    margin-right: 4px;
+}
+
+.article_tags > .tag {
+    margin-right: 6px;
+}

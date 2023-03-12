@@ -1,50 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>
+        Puff Puff's Note
+    </title>
+    <link rel="stylesheet" href="/prism/prism.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/post_box.css">
+    <script src="/prism/prism.js"></script>
 <meta name="generator" content="Hexo 6.3.0"></head>
+
 <body>
-    <h1">
-    header
-</h1>
-    <br>
-    <h1>
-    Nginx实战篇
-</h1>
-<p>
-    January 12th 2023
-</p>
-author: null
-<h1 id="使用-Nginx-的正确姿势"><a href="#使用-Nginx-的正确姿势" class="headerlink" title="使用 Nginx 的正确姿势"></a>使用 Nginx 的正确姿势</h1><blockquote>
+    <div class="background" style="background-color: #FEF8F9;"></div>
+
+
+<style>
+    .background {
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Cpath fill-opacity='.07' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'/%3E%3C/svg%3E");
+    }
+</style>
+    <nav>
+    <div class="links">
+        <a href="/">"Home"</a>
+        <a href="/links">"Links"</a>
+        <a href="">"RSS"</a>
+    </div>
+</nav>
+
+
+<style>
+    nav {
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        background-color: white;
+    }
+
+    .links {
+        margin: 0 auto;
+        padding: 15px 20px;
+        max-width: 1140px;
+    }
+
+    nav a {
+        font-size: 16px;
+        font-weight: bold;
+        color: #F2A3B3;
+        padding-right: 13px;
+    }
+</style>
+    <div class="welcome">
+    <div class="hello">
+        <div class="title">Puff Puff's Note</div>
+        <div class="subtitle">Greet this day with love and hope.</div>
+    </div>
+</div>
+
+<style>
+    .welcome {
+        background-color: #f2a3b3;
+        margin-bottom: -165px;
+    }
+    .hello {
+        width: 1140px;
+        margin: 0 auto;
+        padding: 65px 20px 165px 20px;
+    }
+    .hello > * {
+        color: white;
+    }
+    .hello > .title {
+        font-size: 42px;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+</style>
+    <div class="main">
+    <ul class="posts">
+        <div class="post_box">
+    <li>
+        <h4 class="publish_time">
+            Jan 12th 2023
+        </h4>
+
+        <div class="post_title">
+            <a href="2023/01/12/Nginx实战篇/">
+                Nginx实战篇
+            </a>
+        </div>
+        
+        <div class="article_tags">
+            <svg t="1678608264113" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2767" width="200" height="200"><path d="M796.992 497.696l-333.376 333.44h-0.128L191.904 559.68l333.44-333.44C533.472 225.408 553.6 224 601.28 224c82.24 0 191.68 4 193.824 5.12 4.16 111.296 5.824 236.896 1.92 268.576m62.08-269.76c0-35.2-28.64-63.84-62.656-63.84h-0.064C795.296 164.064 684.704 160 601.28 160c-96.16 0-104.8 4.64-115.2 15.04L146.656 514.464c-24.96 24.96-24.896 65.6 0.16 90.656l271.232 271.232c12.16 12.128 28.256 18.784 45.44 18.784 17.152 0 33.184-6.624 45.184-18.624l339.424-339.424c11.2-11.2 21.76-21.76 10.976-309.152" fill="#3D3A39" p-id="2768"></path><path d="M609.376 440.288c-26.464 0-48-21.536-48-48s21.536-48 48-48 48 21.536 48 48-21.536 48-48 48m0-160c-61.76 0-112 50.24-112 112s50.24 112 112 112 112-50.24 112-112-50.24-112-112-112" fill="#3D3A39" p-id="2769"></path></svg>
+            
+                <a class="tag" href="/tags/Nginx">
+                    Nginx
+                </a>
+            
+        </div>
+        <h1 id="使用-Nginx-的正确姿势"><a href="#使用-Nginx-的正确姿势" class="headerlink" title="使用 Nginx 的正确姿势"></a>使用 Nginx 的正确姿势</h1><blockquote>
 <p>运行环境：Fedora 34</p>
 </blockquote>
 <span id="more"></span>
-<h2 id="环境准备-amp-安装"><a href="#环境准备-amp-安装" class="headerlink" title="环境准备 &amp; 安装"></a>环境准备 &amp; 安装</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@fedora34 ~]<span class="comment"># dnf install nginx</span></span><br></pre></td></tr></table></figure>
+<h2 id="环境准备-amp-安装"><a href="#环境准备-amp-安装" class="headerlink" title="环境准备 &amp; 安装"></a>环境准备 &amp; 安装</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@fedora34 ~<span class="token punctuation">]</span><span class="token comment"># dnf install nginx</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="启动-Nginx"><a href="#启动-Nginx" class="headerlink" title="启动 Nginx"></a>启动 Nginx</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@fedora34 ~]<span class="comment"># systemctl start nginx.service</span></span><br></pre></td></tr></table></figure>
+<h3 id="启动-Nginx"><a href="#启动-Nginx" class="headerlink" title="启动 Nginx"></a>启动 Nginx</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@fedora34 ~<span class="token punctuation">]</span><span class="token comment"># systemctl start nginx.service</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="查看-Nginx-状态"><a href="#查看-Nginx-状态" class="headerlink" title="查看 Nginx 状态"></a>查看 Nginx 状态</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@fedora34 ~]<span class="comment"># systemctl status nginx.service</span></span><br><span class="line">● nginx.service - The nginx HTTP and reverse proxy server</span><br><span class="line">     Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled; vendor preset: disabled)</span><br><span class="line">     Active: active (running) since Thu 2023-01-12 15:50:57 CST; 1s ago</span><br><span class="line">    Process: 2746392 ExecStartPre=/usr/bin/rm -f /run/nginx.pid (code=exited, status=0/SUCCESS)</span><br><span class="line">    Process: 2746393 ExecStartPre=/usr/sbin/nginx -t (code=exited, status=0/SUCCESS)</span><br><span class="line">    Process: 2746394 ExecStart=/usr/sbin/nginx (code=exited, status=0/SUCCESS)</span><br><span class="line">   Main PID: 2746395 (nginx)</span><br><span class="line">      Tasks: 2 (<span class="built_in">limit</span>: 2333)</span><br><span class="line">     Memory: 4.4M</span><br><span class="line">        CPU: 63ms</span><br><span class="line">    <span class="comment"># 有几个 worker 就表示服务器有几个核心数，可以在配置文件中配置</span></span><br><span class="line">     CGroup: /system.slice/nginx.service</span><br><span class="line">             ├─2746395 nginx: master process /usr/sbin/nginx</span><br><span class="line">             └─2746396 nginx: worker process</span><br></pre></td></tr></table></figure>
+<h3 id="查看-Nginx-状态"><a href="#查看-Nginx-状态" class="headerlink" title="查看 Nginx 状态"></a>查看 Nginx 状态</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@fedora34 ~<span class="token punctuation">]</span><span class="token comment"># systemctl status nginx.service</span>
+● nginx.service - The nginx HTTP and reverse proxy server
+     Loaded: loaded <span class="token punctuation">(</span>/usr/lib/systemd/system/nginx.service<span class="token punctuation">;</span> disabled<span class="token punctuation">;</span> vendor preset: disabled<span class="token punctuation">)</span>
+     Active: active <span class="token punctuation">(</span>running<span class="token punctuation">)</span> since Thu <span class="token number">2023</span>-01-12 <span class="token number">15</span>:50:57 CST<span class="token punctuation">;</span> 1s ago
+    Process: <span class="token number">2746392</span> <span class="token assign-left variable">ExecStartPre</span><span class="token operator">=</span>/usr/bin/rm <span class="token parameter variable">-f</span> /run/nginx.pid <span class="token punctuation">(</span>code<span class="token operator">=</span>exited, <span class="token assign-left variable">status</span><span class="token operator">=</span><span class="token number">0</span>/SUCCESS<span class="token punctuation">)</span>
+    Process: <span class="token number">2746393</span> <span class="token assign-left variable">ExecStartPre</span><span class="token operator">=</span>/usr/sbin/nginx <span class="token parameter variable">-t</span> <span class="token punctuation">(</span>code<span class="token operator">=</span>exited, <span class="token assign-left variable">status</span><span class="token operator">=</span><span class="token number">0</span>/SUCCESS<span class="token punctuation">)</span>
+    Process: <span class="token number">2746394</span> <span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/usr/sbin/nginx <span class="token punctuation">(</span>code<span class="token operator">=</span>exited, <span class="token assign-left variable">status</span><span class="token operator">=</span><span class="token number">0</span>/SUCCESS<span class="token punctuation">)</span>
+   Main PID: <span class="token number">2746395</span> <span class="token punctuation">(</span>nginx<span class="token punctuation">)</span>
+      Tasks: <span class="token number">2</span> <span class="token punctuation">(</span>limit: <span class="token number">2333</span><span class="token punctuation">)</span>
+     Memory: <span class="token number">4</span>.4M
+        CPU: 63ms
+    <span class="token comment"># 有几个 worker 就表示服务器有几个核心数，可以在配置文件中配置</span>
+     CGroup: /system.slice/nginx.service
+             ├─2746395 nginx: master process /usr/sbin/nginx
+             └─2746396 nginx: worker process<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>可以看到 Nginx 已经成功启动。</p>
 <p>跳转到服务器地址，出现此页面则为成功配置运行。</p>
 <p><img src="/images/nginx_success.png" alt="图片失效咯"></p>
-<h3 id="将-Nginx-服务设置为每次开机启动"><a href="#将-Nginx-服务设置为每次开机启动" class="headerlink" title="将 Nginx 服务设置为每次开机启动"></a>将 Nginx 服务设置为每次开机启动</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@fedora34 ~]<span class="comment"># systemctl enable nginx</span></span><br><span class="line">Created symlink /etc/systemd/system/multi-user.target.wants/nginx.service → /usr/lib/systemd/system/nginx.service.</span><br></pre></td></tr></table></figure>
+<h3 id="将-Nginx-服务设置为每次开机启动"><a href="#将-Nginx-服务设置为每次开机启动" class="headerlink" title="将 Nginx 服务设置为每次开机启动"></a>将 Nginx 服务设置为每次开机启动</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@fedora34 ~<span class="token punctuation">]</span><span class="token comment"># systemctl enable nginx</span>
+Created symlink /etc/systemd/system/multi-user.target.wants/nginx.service → /usr/lib/systemd/system/nginx.service.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> nginx <span class="comment"># 将 nginx 作为服务</span></span><br><span class="line">systemctl status nginx <span class="comment"># 查看 nginx 状态</span></span><br><span class="line">nginx -v <span class="comment"># 查看 nginx 版本</span></span><br><span class="line">nginx -V <span class="comment"># 查看 nginx 版本以及配置选项</span></span><br></pre></td></tr></table></figure>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl <span class="token builtin class-name">enable</span> nginx <span class="token comment"># 将 nginx 作为服务</span>
+systemctl status nginx <span class="token comment"># 查看 nginx 状态</span>
+nginx <span class="token parameter variable">-v</span> <span class="token comment"># 查看 nginx 版本</span>
+nginx <span class="token parameter variable">-V</span> <span class="token comment"># 查看 nginx 版本以及配置选项</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="简单配置"><a href="#简单配置" class="headerlink" title="简单配置"></a>简单配置</h2><p>首先进入 Nginx 配置目录下，并且新建一个配置文件 <code>hello.conf</code>，填入以下配置。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@fedora34 /]<span class="comment"># cd /etc/nginx/conf.d/</span></span><br><span class="line">[root@fedora34 conf.d]<span class="comment"># vim hello.conf</span></span><br><span class="line"></span><br><span class="line">server&#123;</span><br><span class="line">        listen 81;</span><br><span class="line">        location / &#123;</span><br><span class="line">                root /home/;</span><br><span class="line">                index index.htm index.html;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@fedora34 /<span class="token punctuation">]</span><span class="token comment"># cd /etc/nginx/conf.d/</span>
+<span class="token punctuation">[</span>root@fedora34 conf.d<span class="token punctuation">]</span><span class="token comment"># vim hello.conf</span>
+
+server<span class="token punctuation">&#123;</span>
+        listen <span class="token number">81</span><span class="token punctuation">;</span>
+        location / <span class="token punctuation">&#123;</span>
+                root /home/<span class="token punctuation">;</span>
+                index index.htm index.html<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>完成后使用 <code>nginx -t</code> 测试配置文件是否正确。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@fedora34 conf.d]<span class="comment"># nginx -t</span></span><br><span class="line">nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</span><br><span class="line">nginx: configuration file /etc/nginx/nginx.conf <span class="built_in">test</span> is successful</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@fedora34 conf.d<span class="token punctuation">]</span><span class="token comment"># nginx -t</span>
+nginx: the configuration <span class="token function">file</span> /etc/nginx/nginx.conf syntax is ok
+nginx: configuration <span class="token function">file</span> /etc/nginx/nginx.conf <span class="token builtin class-name">test</span> is successful<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>通过测试后重新加载配置文件 <code>nginx -s reload</code> 。</p>
 <hr>
 <p>先写到这，发现得先去补一下正则的知识。</p>
 
-    <br>
-    Footer
+        
+    </li>
+</div>
+
+<style>
+    
+</style>
+    </ul>
+    <div class="sider">
+        <div class="archives">
+            <div class="sider_box">
+    <span>
+        Archives
+    </span>
+   <a class="av_date-link" href="/archives/2023/03/">March 2023</a><a class="av_date-link" href="/archives/2023/01/">January 2023</a><a class="av_date-link" href="/archives/2022/08/">August 2022</a>
+</div>
+<style>
+    .sider_box {
+        display: flex;
+        border: 1px solid rgb(244, 233, 233);
+        flex-direction: column;
+        flex-shrink: 0;
+        padding: 15px 20px;
+        border-radius: 13px;
+        margin-bottom: 20px;
+        background-color: white;
+        box-shadow: 0.5px 0.5px 3px rgb(231, 220, 220);
+    }
+    .sider_box:hover {
+        box-shadow: 0.5px 0.5px 5px rgb(228, 213, 213),
+            -0.5px -0.5px 5px rgb(228, 213, 213);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+    
+</style>
+        </div>
+        <div class="tags">
+            <div class="sider_box">
+    <span>
+        Tags
+    </span>
+   <a class="tag-link" href="/tags/Docker/" rel="tag">Docker</a><a class="tag-link" href="/tags/Game/" rel="tag">Game</a><a class="tag-link" href="/tags/Gin/" rel="tag">Gin</a><a class="tag-link" href="/tags/Golang/" rel="tag">Golang</a><a class="tag-link" href="/tags/Linux/" rel="tag">Linux</a><a class="tag-link" href="/tags/Minecraft/" rel="tag">Minecraft</a><a class="tag-link" href="/tags/Nginx/" rel="tag">Nginx</a><a class="tag-link" href="/tags/hello/" rel="tag">hello</a><a class="tag-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a>
+</div>
+<style>
+    .sider_box {
+        display: flex;
+        border: 1px solid rgb(244, 233, 233);
+        flex-direction: column;
+        flex-shrink: 0;
+        padding: 15px 20px;
+        border-radius: 13px;
+        margin-bottom: 20px;
+        background-color: white;
+        box-shadow: 0.5px 0.5px 3px rgb(231, 220, 220);
+    }
+    .sider_box:hover {
+        box-shadow: 0.5px 0.5px 5px rgb(228, 213, 213),
+            -0.5px -0.5px 5px rgb(228, 213, 213);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+    
+</style>
+        </div>
+    </div>
+</div>
 </body>
+
+
 </html>

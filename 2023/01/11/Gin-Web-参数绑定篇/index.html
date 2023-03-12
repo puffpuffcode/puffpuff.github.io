@@ -1,43 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>
+        Puff Puff's Note
+    </title>
+    <link rel="stylesheet" href="/prism/prism.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/post_box.css">
+    <script src="/prism/prism.js"></script>
 <meta name="generator" content="Hexo 6.3.0"></head>
+
 <body>
-    <h1">
-    header
-</h1>
-    <br>
-    <h1>
-    Gin Web-参数绑定篇
-</h1>
-<p>
-    January 11th 2023
-</p>
-author: null
-<h1 id="使用-Gin-框架绑定参数的正确姿势"><a href="#使用-Gin-框架绑定参数的正确姿势" class="headerlink" title="使用 Gin 框架绑定参数的正确姿势"></a>使用 Gin 框架绑定参数的正确姿势</h1><blockquote>
+    <div class="background" style="background-color: #FEF8F9;"></div>
+
+
+<style>
+    .background {
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Cpath fill-opacity='.07' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'/%3E%3C/svg%3E");
+    }
+</style>
+    <nav>
+    <div class="links">
+        <a href="/">"Home"</a>
+        <a href="/links">"Links"</a>
+        <a href="">"RSS"</a>
+    </div>
+</nav>
+
+
+<style>
+    nav {
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        background-color: white;
+    }
+
+    .links {
+        margin: 0 auto;
+        padding: 15px 20px;
+        max-width: 1140px;
+    }
+
+    nav a {
+        font-size: 16px;
+        font-weight: bold;
+        color: #F2A3B3;
+        padding-right: 13px;
+    }
+</style>
+    <div class="welcome">
+    <div class="hello">
+        <div class="title">Puff Puff's Note</div>
+        <div class="subtitle">Greet this day with love and hope.</div>
+    </div>
+</div>
+
+<style>
+    .welcome {
+        background-color: #f2a3b3;
+        margin-bottom: -165px;
+    }
+    .hello {
+        width: 1140px;
+        margin: 0 auto;
+        padding: 65px 20px 165px 20px;
+    }
+    .hello > * {
+        color: white;
+    }
+    .hello > .title {
+        font-size: 42px;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+</style>
+    <div class="main">
+    <ul class="posts">
+        <div class="post_box">
+    <li>
+        <h4 class="publish_time">
+            Jan 11th 2023
+        </h4>
+
+        <div class="post_title">
+            <a href="2023/01/11/Gin-Web-参数绑定篇/">
+                Gin Web-参数绑定篇
+            </a>
+        </div>
+        
+        <div class="article_tags">
+            <svg t="1678608264113" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2767" width="200" height="200"><path d="M796.992 497.696l-333.376 333.44h-0.128L191.904 559.68l333.44-333.44C533.472 225.408 553.6 224 601.28 224c82.24 0 191.68 4 193.824 5.12 4.16 111.296 5.824 236.896 1.92 268.576m62.08-269.76c0-35.2-28.64-63.84-62.656-63.84h-0.064C795.296 164.064 684.704 160 601.28 160c-96.16 0-104.8 4.64-115.2 15.04L146.656 514.464c-24.96 24.96-24.896 65.6 0.16 90.656l271.232 271.232c12.16 12.128 28.256 18.784 45.44 18.784 17.152 0 33.184-6.624 45.184-18.624l339.424-339.424c11.2-11.2 21.76-21.76 10.976-309.152" fill="#3D3A39" p-id="2768"></path><path d="M609.376 440.288c-26.464 0-48-21.536-48-48s21.536-48 48-48 48 21.536 48 48-21.536 48-48 48m0-160c-61.76 0-112 50.24-112 112s50.24 112 112 112 112-50.24 112-112-50.24-112-112-112" fill="#3D3A39" p-id="2769"></path></svg>
+            
+                <a class="tag" href="/tags/Gin">
+                    Gin
+                </a>
+            
+                <a class="tag" href="/tags/Golang">
+                    Golang
+                </a>
+            
+        </div>
+        <h1 id="使用-Gin-框架绑定参数的正确姿势"><a href="#使用-Gin-框架绑定参数的正确姿势" class="headerlink" title="使用 Gin 框架绑定参数的正确姿势"></a>使用 Gin 框架绑定参数的正确姿势</h1><blockquote>
 <p>本文参考自 <a target="_blank" rel="noopener" href="https://gin-gonic.com/zh-cn/docs/">Gin 官方文档</a>。</p>
 </blockquote>
 <h2 id="Multipart-x2F-Urlencoded-绑定"><a href="#Multipart-x2F-Urlencoded-绑定" class="headerlink" title="Multipart&#x2F;Urlencoded 绑定"></a>Multipart&#x2F;Urlencoded 绑定</h2><p>Gin 框架中提供了模型绑定，将表单数据和模型进行绑定，方便参数校验和使用。</p>
 <p><code>c.ShouldBind(obj any)</code> 根据请求头中的 <code>Content-Type</code> 选择合适的方法绑定结构体。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// shouldbind demo1</span></span><br><span class="line"><span class="keyword">type</span> LoginForm <span class="keyword">struct</span> &#123;</span><br><span class="line">	User     <span class="type">string</span> <span class="string">`form:&quot;user&quot; binding:&quot;required&quot;`</span></span><br><span class="line">	Password <span class="type">string</span> <span class="string">`form:&quot;password&quot; binding:&quot;required&quot;`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	router := gin.Default()</span><br><span class="line">	router.POST(<span class="string">&quot;/login&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		<span class="comment">// 你可以使用显式绑定声明绑定 multipart form：</span></span><br><span class="line">		<span class="comment">// c.ShouldBindWith(&amp;form, binding.Form)</span></span><br><span class="line">		<span class="keyword">var</span> form LoginForm</span><br><span class="line">		<span class="comment">// 在这种情况下，将自动选择合适的绑定</span></span><br><span class="line">		<span class="keyword">if</span> c.ShouldBind(&amp;form) == <span class="literal">nil</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> form.User == <span class="string">&quot;user&quot;</span> &amp;&amp; form.Password == <span class="string">&quot;password&quot;</span> &#123;</span><br><span class="line">				c.JSON(<span class="number">200</span>, gin.H&#123;<span class="string">&quot;status&quot;</span>: <span class="string">&quot;you are logged in&quot;</span>&#125;)</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				c.JSON(<span class="number">401</span>, gin.H&#123;<span class="string">&quot;status&quot;</span>: <span class="string">&quot;unauthorized&quot;</span>&#125;)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">	router.Run(<span class="string">&quot;:8080&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// shouldbind demo1</span>
+<span class="token keyword">type</span> LoginForm <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
+	User     <span class="token builtin">string</span> <span class="token string">`form:"user" binding:"required"`</span>
+	Password <span class="token builtin">string</span> <span class="token string">`form:"password" binding:"required"`</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	router <span class="token operator">:=</span> gin<span class="token punctuation">.</span><span class="token function">Default</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	router<span class="token punctuation">.</span><span class="token function">POST</span><span class="token punctuation">(</span><span class="token string">"/login"</span><span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token comment">// 你可以使用显式绑定声明绑定 multipart form：</span>
+		<span class="token comment">// c.ShouldBindWith(&amp;form, binding.Form)</span>
+		<span class="token keyword">var</span> form LoginForm
+		<span class="token comment">// 在这种情况下，将自动选择合适的绑定</span>
+		<span class="token keyword">if</span> c<span class="token punctuation">.</span><span class="token function">ShouldBind</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>form<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">if</span> form<span class="token punctuation">.</span>User <span class="token operator">==</span> <span class="token string">"user"</span> <span class="token operator">&amp;&amp;</span> form<span class="token punctuation">.</span>Password <span class="token operator">==</span> <span class="token string">"password"</span> <span class="token punctuation">&#123;</span>
+				c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> gin<span class="token punctuation">.</span>H<span class="token punctuation">&#123;</span><span class="token string">"status"</span><span class="token punctuation">:</span> <span class="token string">"you are logged in"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+			<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+				c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span><span class="token number">401</span><span class="token punctuation">,</span> gin<span class="token punctuation">.</span>H<span class="token punctuation">&#123;</span><span class="token string">"status"</span><span class="token punctuation">:</span> <span class="token string">"unauthorized"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+	router<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token string">":8080"</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>c.ShouldBind(obj any)</code> 与 <code>c.Bind(obj any)</code> 的区别？</p>
 <p>后者在没有正确绑定时会返回 <code>400 error</code> 并且在响应头中设置 <code>Content-Type header &quot;text/plain&quot;</code> 并且 Abort。</p>
 <span id="more"></span>
 <h2 id="Multipart-x2F-Urlencoded-表单"><a href="#Multipart-x2F-Urlencoded-表单" class="headerlink" title="Multipart&#x2F;Urlencoded 表单"></a>Multipart&#x2F;Urlencoded 表单</h2><p>当参数比较少，获取表单数据时还可以这么做。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	router := gin.Default()</span><br><span class="line"></span><br><span class="line">	router.POST(<span class="string">&quot;/form_post&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		<span class="comment">// 只获取表单中一个参数，如果没有成功获取则为&quot;&quot;</span></span><br><span class="line">		message := c.PostForm(<span class="string">&quot;message&quot;</span>)</span><br><span class="line">		<span class="comment">// 获取一个带默认值的参数</span></span><br><span class="line">		nick := c.DefaultPostForm(<span class="string">&quot;nick&quot;</span>, <span class="string">&quot;anonymous&quot;</span>)</span><br><span class="line"></span><br><span class="line">		c.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">			<span class="string">&quot;status&quot;</span>:  <span class="string">&quot;posted&quot;</span>,</span><br><span class="line">			<span class="string">&quot;message&quot;</span>: message,</span><br><span class="line">			<span class="string">&quot;nick&quot;</span>:    nick,</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">	router.Run(<span class="string">&quot;:8080&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	router <span class="token operator">:=</span> gin<span class="token punctuation">.</span><span class="token function">Default</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<h2 id="同时获取不同位置的参数"><a href="#同时获取不同位置的参数" class="headerlink" title="同时获取不同位置的参数"></a>同时获取不同位置的参数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST /post?id=1234&amp;page=1 HTTP/1.1</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">name=manu&amp;message=this_is_great</span><br></pre></td></tr></table></figure>
+	router<span class="token punctuation">.</span><span class="token function">POST</span><span class="token punctuation">(</span><span class="token string">"/form_post"</span><span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token comment">// 只获取表单中一个参数，如果没有成功获取则为""</span>
+		message <span class="token operator">:=</span> c<span class="token punctuation">.</span><span class="token function">PostForm</span><span class="token punctuation">(</span><span class="token string">"message"</span><span class="token punctuation">)</span>
+		<span class="token comment">// 获取一个带默认值的参数</span>
+		nick <span class="token operator">:=</span> c<span class="token punctuation">.</span><span class="token function">DefaultPostForm</span><span class="token punctuation">(</span><span class="token string">"nick"</span><span class="token punctuation">,</span> <span class="token string">"anonymous"</span><span class="token punctuation">)</span>
 
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// query 和 post form</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	router := gin.Default()</span><br><span class="line"></span><br><span class="line">	router.POST(<span class="string">&quot;/post&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">		id := c.Query(<span class="string">&quot;id&quot;</span>)</span><br><span class="line">		page := c.DefaultQuery(<span class="string">&quot;page&quot;</span>, <span class="string">&quot;0&quot;</span>)</span><br><span class="line">		name := c.PostForm(<span class="string">&quot;name&quot;</span>)</span><br><span class="line">		message := c.PostForm(<span class="string">&quot;message&quot;</span>)</span><br><span class="line"></span><br><span class="line">		fmt.Printf(<span class="string">&quot;id: %s; page: %s; name: %s; message: %s&quot;</span>, id, page, name, message)</span><br><span class="line">	&#125;)</span><br><span class="line">	router.Run(<span class="string">&quot;:8080&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+		c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> gin<span class="token punctuation">.</span>H<span class="token punctuation">&#123;</span>
+			<span class="token string">"status"</span><span class="token punctuation">:</span>  <span class="token string">"posted"</span><span class="token punctuation">,</span>
+			<span class="token string">"message"</span><span class="token punctuation">:</span> message<span class="token punctuation">,</span>
+			<span class="token string">"nick"</span><span class="token punctuation">:</span>    nick<span class="token punctuation">,</span>
+		<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+	router<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token string">":8080"</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="同时获取不同位置的参数"><a href="#同时获取不同位置的参数" class="headerlink" title="同时获取不同位置的参数"></a>同时获取不同位置的参数</h2><pre class="line-numbers language-none"><code class="language-none">POST &#x2F;post?id&#x3D;1234&amp;page&#x3D;1 HTTP&#x2F;1.1
+Content-Type: application&#x2F;x-www-form-urlencoded
+
+name&#x3D;manu&amp;message&#x3D;this_is_great<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// query 和 post form</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	router <span class="token operator">:=</span> gin<span class="token punctuation">.</span><span class="token function">Default</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	router<span class="token punctuation">.</span><span class="token function">POST</span><span class="token punctuation">(</span><span class="token string">"/post"</span><span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+		id <span class="token operator">:=</span> c<span class="token punctuation">.</span><span class="token function">Query</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span>
+		page <span class="token operator">:=</span> c<span class="token punctuation">.</span><span class="token function">DefaultQuery</span><span class="token punctuation">(</span><span class="token string">"page"</span><span class="token punctuation">,</span> <span class="token string">"0"</span><span class="token punctuation">)</span>
+		name <span class="token operator">:=</span> c<span class="token punctuation">.</span><span class="token function">PostForm</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span>
+		message <span class="token operator">:=</span> c<span class="token punctuation">.</span><span class="token function">PostForm</span><span class="token punctuation">(</span><span class="token string">"message"</span><span class="token punctuation">)</span>
+
+		fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"id: %s; page: %s; name: %s; message: %s"</span><span class="token punctuation">,</span> id<span class="token punctuation">,</span> page<span class="token punctuation">,</span> name<span class="token punctuation">,</span> message<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+	router<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token string">":8080"</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="获取-Url-参数"><a href="#获取-Url-参数" class="headerlink" title="获取 Url 参数"></a>获取 Url 参数</h2><p>如将参数写在了 url 中，如下。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span>&#123;</span><br><span class="line">	Id <span class="type">string</span> <span class="string">`form:&quot;id&quot;`</span></span><br><span class="line">	Name <span class="type">string</span> <span class="string">`form:&quot;name&quot;`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">user := <span class="built_in">new</span>(User)</span><br><span class="line"></span><br><span class="line">r.GET(<span class="string">&quot;user/:id/:name&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		<span class="keyword">if</span> err := c.ShouldBindUri(user); err != <span class="literal">nil</span> &#123;</span><br><span class="line">			<span class="built_in">panic</span>(err)</span><br><span class="line">		&#125;</span><br><span class="line">		c.JSON(http.StatusOK, gin.H&#123;</span><br><span class="line">			<span class="string">&quot;id&quot;</span>:   user.ID,</span><br><span class="line">			<span class="string">&quot;name&quot;</span>: user.Name,</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">router.Run(<span class="string">&quot;:8080&quot;</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> User <span class="token keyword">struct</span><span class="token punctuation">&#123;</span>
+	Id <span class="token builtin">string</span> <span class="token string">`form:"id"`</span>
+	Name <span class="token builtin">string</span> <span class="token string">`form:"name"`</span>
+<span class="token punctuation">&#125;</span>
 
-    <br>
-    Footer
+user <span class="token operator">:=</span> <span class="token function">new</span><span class="token punctuation">(</span>User<span class="token punctuation">)</span>
+
+r<span class="token punctuation">.</span><span class="token function">GET</span><span class="token punctuation">(</span><span class="token string">"user/:id/:name"</span><span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">if</span> err <span class="token operator">:=</span> c<span class="token punctuation">.</span><span class="token function">ShouldBindUri</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+			<span class="token function">panic</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+		<span class="token punctuation">&#125;</span>
+		c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span>http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span> gin<span class="token punctuation">.</span>H<span class="token punctuation">&#123;</span>
+			<span class="token string">"id"</span><span class="token punctuation">:</span>   user<span class="token punctuation">.</span>ID<span class="token punctuation">,</span>
+			<span class="token string">"name"</span><span class="token punctuation">:</span> user<span class="token punctuation">.</span>Name<span class="token punctuation">,</span>
+		<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+router<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token string">":8080"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+        
+    </li>
+</div>
+
+<style>
+    
+</style>
+    </ul>
+    <div class="sider">
+        <div class="archives">
+            <div class="sider_box">
+    <span>
+        Archives
+    </span>
+   <a class="av_date-link" href="/archives/2023/03/">March 2023</a><a class="av_date-link" href="/archives/2023/01/">January 2023</a><a class="av_date-link" href="/archives/2022/08/">August 2022</a>
+</div>
+<style>
+    .sider_box {
+        display: flex;
+        border: 1px solid rgb(244, 233, 233);
+        flex-direction: column;
+        flex-shrink: 0;
+        padding: 15px 20px;
+        border-radius: 13px;
+        margin-bottom: 20px;
+        background-color: white;
+        box-shadow: 0.5px 0.5px 3px rgb(231, 220, 220);
+    }
+    .sider_box:hover {
+        box-shadow: 0.5px 0.5px 5px rgb(228, 213, 213),
+            -0.5px -0.5px 5px rgb(228, 213, 213);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+    
+</style>
+        </div>
+        <div class="tags">
+            <div class="sider_box">
+    <span>
+        Tags
+    </span>
+   <a class="tag-link" href="/tags/Docker/" rel="tag">Docker</a><a class="tag-link" href="/tags/Game/" rel="tag">Game</a><a class="tag-link" href="/tags/Gin/" rel="tag">Gin</a><a class="tag-link" href="/tags/Golang/" rel="tag">Golang</a><a class="tag-link" href="/tags/Linux/" rel="tag">Linux</a><a class="tag-link" href="/tags/Minecraft/" rel="tag">Minecraft</a><a class="tag-link" href="/tags/Nginx/" rel="tag">Nginx</a><a class="tag-link" href="/tags/hello/" rel="tag">hello</a><a class="tag-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a>
+</div>
+<style>
+    .sider_box {
+        display: flex;
+        border: 1px solid rgb(244, 233, 233);
+        flex-direction: column;
+        flex-shrink: 0;
+        padding: 15px 20px;
+        border-radius: 13px;
+        margin-bottom: 20px;
+        background-color: white;
+        box-shadow: 0.5px 0.5px 3px rgb(231, 220, 220);
+    }
+    .sider_box:hover {
+        box-shadow: 0.5px 0.5px 5px rgb(228, 213, 213),
+            -0.5px -0.5px 5px rgb(228, 213, 213);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+    
+</style>
+        </div>
+    </div>
+</div>
 </body>
+
+
 </html>
