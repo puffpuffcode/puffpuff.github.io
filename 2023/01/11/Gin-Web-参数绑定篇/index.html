@@ -61,7 +61,8 @@
                 Jan 11th 2023, 17:01
             </div>
             
-            <h1 id="使用-Gin-框架绑定参数的正确姿势"><a href="#使用-Gin-框架绑定参数的正确姿势" class="headerlink" title="使用 Gin 框架绑定参数的正确姿势"></a>使用 Gin 框架绑定参数的正确姿势</h1><blockquote>
+            <span id="more"></span>
+<h1 id="使用-Gin-框架绑定参数的正确姿势"><a href="#使用-Gin-框架绑定参数的正确姿势" class="headerlink" title="使用 Gin 框架绑定参数的正确姿势"></a>使用 Gin 框架绑定参数的正确姿势</h1><blockquote>
 <p>本文参考自 <a target="_blank" rel="noopener" href="https://gin-gonic.com/zh-cn/docs/">Gin 官方文档</a>。</p>
 </blockquote>
 <h2 id="Multipart-x2F-Urlencoded-绑定"><a href="#Multipart-x2F-Urlencoded-绑定" class="headerlink" title="Multipart&#x2F;Urlencoded 绑定"></a>Multipart&#x2F;Urlencoded 绑定</h2><p>Gin 框架中提供了模型绑定，将表单数据和模型进行绑定，方便参数校验和使用。</p>
@@ -91,7 +92,7 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>c.ShouldBind(obj any)</code> 与 <code>c.Bind(obj any)</code> 的区别？</p>
 <p>后者在没有正确绑定时会返回 <code>400 error</code> 并且在响应头中设置 <code>Content-Type header &quot;text/plain&quot;</code> 并且 Abort。</p>
-<span id="more"></span>
+<!--more-->
 <h2 id="Multipart-x2F-Urlencoded-表单"><a href="#Multipart-x2F-Urlencoded-表单" class="headerlink" title="Multipart&#x2F;Urlencoded 表单"></a>Multipart&#x2F;Urlencoded 表单</h2><p>当参数比较少，获取表单数据时还可以这么做。</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 	router <span class="token operator">:=</span> gin<span class="token punctuation">.</span><span class="token function">Default</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
