@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Puff Puff's Note
+    </title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/prism/prism.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/post_box.css">
+    <link rel="stylesheet" href="/css/sider_box.css">
+    <link rel="stylesheet" href="/css/welcome.css">
+    <link rel="stylesheet" href="/css/tail.css">
+    <script src="/prism/prism.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div class="background" style="background-color: #FEF8F9"></div>
+    <nav>
+    <div class="links">
+        <a href="/">"Home"</a>
+        <a href="/links">"Links"</a>
+        <a href="">"RSS"</a>
+    </div>
+</nav>
+
+    <div class="welcome">
+    <div class="hello">
+        <div class="title">Puff Puff's Note</div>
+        <div class="subtitle">"Greet this day with love and hope."</div>
+    </div>
+</div>
+
+    <div class="main">
+        <div class="main-content">
+            <ul class="posts">
+                <li class="post_box">
+    
+
+            <h1 class="post_title">
+                <a href="/2023/03/13/interview-summary/">
+                    面试总结
+                </a>
+            </h1>
+            
+                <div class="article_tags">
+                    <svg t="1678608264113" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2767" width="200" height="200">
+                        <path
+                            d="M796.992 497.696l-333.376 333.44h-0.128L191.904 559.68l333.44-333.44C533.472 225.408 553.6 224 601.28 224c82.24 0 191.68 4 193.824 5.12 4.16 111.296 5.824 236.896 1.92 268.576m62.08-269.76c0-35.2-28.64-63.84-62.656-63.84h-0.064C795.296 164.064 684.704 160 601.28 160c-96.16 0-104.8 4.64-115.2 15.04L146.656 514.464c-24.96 24.96-24.896 65.6 0.16 90.656l271.232 271.232c12.16 12.128 28.256 18.784 45.44 18.784 17.152 0 33.184-6.624 45.184-18.624l339.424-339.424c11.2-11.2 21.76-21.76 10.976-309.152"
+                            fill="#3D3A39" p-id="2768"></path>
+                        <path
+                            d="M609.376 440.288c-26.464 0-48-21.536-48-48s21.536-48 48-48 48 21.536 48 48-21.536 48-48 48m0-160c-61.76 0-112 50.24-112 112s50.24 112 112 112 112-50.24 112-112-50.24-112-112-112"
+                            fill="#3D3A39" p-id="2769"></path>
+                    </svg>
+                    
+                        <a class="tag" href="/tags/Interview">
+                            Interview
+                        </a>
+                        
+                        <a class="tag" href="/tags/Summary">
+                            Summary
+                        </a>
+                        
+                        <div class="pub_time"> Mar 13th 2023, 13:03</div>
+                       
+                </div>
+
+                <h2 id="3-月-11-日，面试-上海乐客旅行-Golang-工程师"><a href="#3-月-11-日，面试-上海乐客旅行-Golang-工程师" class="headerlink" title="3 月 11 日，面试 上海乐客旅行 Golang 工程师"></a>3 月 11 日，面试 上海乐客旅行 Golang 工程师</h2><h3 id="笔试环节"><a href="#笔试环节" class="headerlink" title="笔试环节"></a>笔试环节</h3><p>一共是四题，大体都很简单，只是第二题有点懵。</p>
+<ul>
+<li>手写冒泡，很基础的题。</li>
+<li>实现 document.getElementById() ，懵了。</li>
+<li>以 O(1) 的时间复杂度从栈中取出最大或最小的元素。<br>我给的答案是维护一个单调递减栈和一个单调递增栈和一个普通栈。<br>当添加元素时，查看单调递减栈的栈顶的元素是否大于当前要添加的元素，大于则压入栈单调递减栈，再压入普通栈。单调递增栈的操作与其相反。如需要弹出栈，则比较普通栈的栈顶元素是否与单调递增栈、单调递减栈的栈顶元素相等，如相等，对应单调栈也应弹出。总体实现取出最大或最小元素 O(1) 时间复杂度。</li>
+<li>一堆硬币中找出假硬币，经典二分查找法。</li>
+</ul>
+<h3 id="自我介绍环节"><a href="#自我介绍环节" class="headerlink" title="自我介绍环节"></a>自我介绍环节</h3><p>balabalabalabala.</p>
+<h3 id="提问环节"><a href="#提问环节" class="headerlink" title="提问环节"></a>提问环节</h3><ul>
+<li><p>A: 你是从什么地方了解 Golang 的？Golang 的优点？<br>Q1: 从程序员社区了解。<br>Q2: 语法简洁，容易学习，运行高效、安全、跨平台，在并发场景易用性高。总体来说取决于应用场景。</p>
+</li>
+<li><p>A: 如何尽量减小结构体所占的内存？<br>Q: 传入大对象用指针，小对象用结构体；使用基本数据类型，比如 int32 而不是 int；尽量使内存对齐。</p>
+</li>
+<li><p>A: 内存对齐的原理？<br>Q: 结构体的对齐大小等于其最长字段的对齐大小。如果一个字段的大小超过了其前面字段的对齐方式，则该字段会被放在下一个对齐位置开始的位置上；如果一个字段的大小不是结构体的对齐大小的整数倍，则会添加 padding 补充。Golang 中会自动进行内存对齐。</p>
+</li>
+<li><p>A: 有个任务，超时之后取消，该怎么做？</p>
+</li>
+<li><p>Q: 使用 Context.WithTimeout()，将 context 传入任务方法中，函数尾部用 select 进行阻塞，如果超时了，满足 select 中的 case: &lt;- context.Down()，结束超时任务。</p>
+</li>
+<li><p>A: 限制一个一段时间内客户端发十次请求该怎么做？</p>
+</li>
+<li><p>Q: 创建一个 map，key 为 ip，value 是包含两个字段：近期第一次请求时间、近期请求次数。前端发来请求时，先判断时间是否超过了十分钟，超过则刷新请求次数，否则查看请求次数是否超过10，超过则拦截。（不知道有没有更好的办法）</p>
+</li>
+<li><p>A: Mysql 如何优化查询速度</p>
+</li>
+<li><p>Q: 加一层 Redis缓存；字段加索引，查询时覆盖索引，保证查询语句里面的字段都在索引文件中；优化查询语句，比如先查索引中包含的字段，在子查询中判断接下来的查询逻辑。</p>
+</li>
+<li><p>A: 怎么检查是否已经覆盖索引？</p>
+</li>
+<li><p>Q: 使用 explain，<code>explain select id, name from user where name = &#39;puffpuff&#39;</code>。</p>
+</li>
+</ul>
+<h4 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h4><p>准备不太充分😥。  </p>
+<ul>
+<li><p>Q: 如何实现给帖子按热度排序？</p>
+</li>
+<li><p>Q: 帖子热度在什么时候刷新？</p>
+</li>
+</ul>
+<h3 id="面试官评价"><a href="#面试官评价" class="headerlink" title="面试官评价"></a>面试官评价</h3><blockquote>
+<p>基础不错，项目准备不充分。</p>
+</blockquote>
+
+                    
+                        
+
+</li>
+            </ul>
+            <div class="sider">
+                <div class="archives">
+                    <div class="sider_box">
+    <span>
+        Archives
+    </span>
+   <a class="av_date-link" href="/archives/2023/03/">March 2023</a><a class="av_date-link" href="/archives/2023/01/">January 2023</a><a class="av_date-link" href="/archives/2022/08/">August 2022</a>
+</div>
+                </div>
+                <div class="tags">
+                    <div class="sider_box">
+    <span>
+        Tags
+    </span>
+   <a class="tag-link" href="/tags/Docker/" rel="tag">Docker</a><a class="tag-link" href="/tags/Game/" rel="tag">Game</a><a class="tag-link" href="/tags/Gin/" rel="tag">Gin</a><a class="tag-link" href="/tags/Golang/" rel="tag">Golang</a><a class="tag-link" href="/tags/Interview/" rel="tag">Interview</a><a class="tag-link" href="/tags/Linux/" rel="tag">Linux</a><a class="tag-link" href="/tags/Minecraft/" rel="tag">Minecraft</a><a class="tag-link" href="/tags/Nginx/" rel="tag">Nginx</a><a class="tag-link" href="/tags/Summary/" rel="tag">Summary</a><a class="tag-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a>
+</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <footer>
+    &copy; Puff Puff
+    <br>
+    Theme Page By Puff Puff
+    <br>
+    Powered by Hexo
+</footer>
+</body>
+
+
+</html>

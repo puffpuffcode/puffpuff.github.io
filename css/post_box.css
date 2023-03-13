@@ -46,3 +46,8 @@
 img {
     margin: 5px 0 3px 0;
 }
+
+.pub_time {
+    align-self: center;
+    padding-top: 3px;
+}

@@ -63,3 +63,12 @@
         margin: 0;
     }
 }
+
+.post_box ul {
+    margin-left: 20px;
+}
+
+.post_box ul li {
+    margin:7px 0;
+    line-height: 1.5em;
+}
