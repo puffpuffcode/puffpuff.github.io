@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Puff Puff's Note
+    </title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/prism/prism.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/post_box.css">
+    <link rel="stylesheet" href="/css/sider_box.css">
+    <link rel="stylesheet" href="/css/welcome.css">
+    <link rel="stylesheet" href="/css/tail.css">
+    <script src="/prism/prism.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <div class="background" style="background-color: #FEF8F9"></div>
+    <nav>
+    <div class="links">
+        <a href="/">"Home"</a>
+        <a href="/links">"Links"</a>
+        <a href="">"RSS"</a>
+    </div>
+</nav>
+
+    <div class="welcome">
+    <div class="hello">
+        <div class="title">Puff Puff's Note</div>
+        <div class="subtitle">"Greet this day with love and hope."</div>
+    </div>
+</div>
+
+    <div class="main">
+        <div class="main-content">
+            <ul class="posts">
+                <li class="post_box">
+    
+
+            <h1 class="post_title">
+                <a href="/2023/03/15/how-to-backup-your-hexo/">
+                    如何备份 Hexo 博客
+                </a>
+            </h1>
+            
+                <div class="article_tags">
+                    <svg t="1678608264113" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2767" width="200" height="200">
+                        <path
+                            d="M796.992 497.696l-333.376 333.44h-0.128L191.904 559.68l333.44-333.44C533.472 225.408 553.6 224 601.28 224c82.24 0 191.68 4 193.824 5.12 4.16 111.296 5.824 236.896 1.92 268.576m62.08-269.76c0-35.2-28.64-63.84-62.656-63.84h-0.064C795.296 164.064 684.704 160 601.28 160c-96.16 0-104.8 4.64-115.2 15.04L146.656 514.464c-24.96 24.96-24.896 65.6 0.16 90.656l271.232 271.232c12.16 12.128 28.256 18.784 45.44 18.784 17.152 0 33.184-6.624 45.184-18.624l339.424-339.424c11.2-11.2 21.76-21.76 10.976-309.152"
+                            fill="#3D3A39" p-id="2768"></path>
+                        <path
+                            d="M609.376 440.288c-26.464 0-48-21.536-48-48s21.536-48 48-48 48 21.536 48 48-21.536 48-48 48m0-160c-61.76 0-112 50.24-112 112s50.24 112 112 112 112-50.24 112-112-50.24-112-112-112"
+                            fill="#3D3A39" p-id="2769"></path>
+                    </svg>
+                    
+                        <a class="tag" href="/tags/Hexo">
+                            Hexo
+                        </a>
+                        
+                        <a class="tag" href="/tags/Backup">
+                            Backup
+                        </a>
+                        
+                        <div class="pub_time"> Mar 15th 2023, 13:03</div>
+                       
+                </div>
+
+                <blockquote>
+<p>每次迁移 Hexo 博客总是很麻烦，有什么方便的方法呢？  </p>
+</blockquote>
+<p>如果是将 Hexo 文件部署在 Github 上，可以这么操作。</p>
+<p>首先在本地 Hexo 目录下创建一个 Git 仓库。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">shiot@DESKTOP-IOE514E MINGW64 ~/Desktop/hexo/blog
+$ <span class="token function">git</span> init
+Initialized empty Git repository <span class="token keyword">in</span> C:/Users/shiot/Desktop/hexo/blog/.git/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>创建完仓库后，先检查一下 <code>.gitignore</code> 文件中是否有被忽略的备份文件。</p>
+<p>将本地仓库与远程仓库关联。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hiot@DESKTOP-IOE514E MINGW64 ~/Desktop/hexo/blog <span class="token punctuation">(</span>master<span class="token punctuation">)</span>
+$ <span class="token function">git</span> remote <span class="token function">add</span> origin git@github.com:puffpuffcode/puffpuffcode.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>将文件添加到暂存库，并提交。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">shiot@DESKTOP-IOE514E MINGW64 ~/Desktop/hexo/blog <span class="token punctuation">(</span>master<span class="token punctuation">)</span>
+$ <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+$ <span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"😁 first commit for backup."</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>需要切换到 <code>dev</code> 分支，否则会与远程仓库冲突。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">shiot@DESKTOP-IOE514E MINGW64 ~/Desktop/hexo/blog <span class="token punctuation">(</span>master<span class="token punctuation">)</span>
+$ <span class="token function">git</span> branch dev
+$ <span class="token function">git</span> checkout dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>提交到远程仓库的 <code>dev</code> 分支，因为 <code>master</code> 或者 <code>main</code> 分支存放的是静态博客文件。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">shiot@DESKTOP-IOE514E MINGW64 ~/Desktop/hexo-mytheme/blog <span class="token punctuation">(</span>dev<span class="token punctuation">)</span>
+$ <span class="token function">git</span> push <span class="token parameter variable">-u</span> origin dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>最后查看一下 Github 仓库。  </p>
+<ul>
+<li><p>main 分支<br><img src="/images/hexo_backup/github_main_branch.png" alt="&#39;图片失效了&#39;"></p>
+</li>
+<li><p>dev 分支<br><img src="/images/hexo_backup/github_dev_branch.png" alt="&#39;图片失效了&#39;"></p>
+</li>
+</ul>
+<p>做到这里就备份成功了！</p>
+<p>如果换电脑或者是本地博客文件丢失了，可以如下操作。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># clone 备份文件</span>
+$ <span class="token function">git</span> clone git@github.com:puffpuffcode/puffpuffcode.github.io.git
+<span class="token comment"># 切换到 dev 分支</span>
+$ <span class="token function">git</span> checkout dev
+<span class="token comment"># 安装依赖</span>
+$ <span class="token function">npm</span> i 
+<span class="token comment"># 检查是否可用</span>
+$ hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                    
+                        
+
+</li>
+            </ul>
+            <div class="sider">
+                <div class="archives">
+                    <div class="sider_box">
+    <span>
+        Archives
+    </span>
+   <a class="av_date-link" href="/archives/2023/03/">March 2023</a><a class="av_date-link" href="/archives/2023/01/">January 2023</a><a class="av_date-link" href="/archives/2022/08/">August 2022</a>
+</div>
+                </div>
+                <div class="tags">
+                    <div class="sider_box">
+    <span>
+        Tags
+    </span>
+   <a class="tag-link" href="/tags/Backup/" rel="tag">Backup</a><a class="tag-link" href="/tags/Docker/" rel="tag">Docker</a><a class="tag-link" href="/tags/Game/" rel="tag">Game</a><a class="tag-link" href="/tags/Gin/" rel="tag">Gin</a><a class="tag-link" href="/tags/Golang/" rel="tag">Golang</a><a class="tag-link" href="/tags/Hexo/" rel="tag">Hexo</a><a class="tag-link" href="/tags/Interview/" rel="tag">Interview</a><a class="tag-link" href="/tags/Linux/" rel="tag">Linux</a><a class="tag-link" href="/tags/Minecraft/" rel="tag">Minecraft</a><a class="tag-link" href="/tags/Nginx/" rel="tag">Nginx</a><a class="tag-link" href="/tags/Summary/" rel="tag">Summary</a><a class="tag-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a>
+</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <footer>
+    &copy; 2023 Puff Puff 
+    <br>
+    Theme Page by Puff Puff
+    <br>
+    Powered by Hexo
+    
+        <br>
+        
+    
+</footer>
+</body>
+
+
+</html>
