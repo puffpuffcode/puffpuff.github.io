@@ -36,9 +36,8 @@ code {
     background-color: #fdedf2;
     border-radius: 0.6em;
     padding: 0.1em 0.3em;
-    /* margin: 1em 0.1em; */
+    font-family: 'Nunito';
     border-left: 2px solid lightblue;
-    font-size:small;
 }
 
 
