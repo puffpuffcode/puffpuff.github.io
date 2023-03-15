@@ -1,0 +1,13 @@
+<ul class="posts">
+    <% let year=page.year %>
+        <% let month=page.month %>
+            <% month=month < 10 ? '0' + month : month %>
+                <% const now=year + '-' + month %>
+
+                    <% site.posts.forEach( post=> { %>
+                        <% const _time=time(post.date, 'YYYY-MM' ) %>
+                            <% if(String(now)==String(_time)) { %>
+                                <%- partial('partial/post_box', {post: post, bg_color: 'white' }) %>
+                                    <% } %>
+                                        <% }) %>
+</ul>

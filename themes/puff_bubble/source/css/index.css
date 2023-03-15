@@ -1,0 +1,153 @@
+@font-face {
+    font-family: 'Nunito';
+    src: url(../font/Nunito-VariableFont_wght.ttf)
+}
+
+@font-face {
+    font-family: 'Courier';
+    src: url(../font/CourierPrime-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Noto Sans Mono';
+    src: url(../font/NotoSansMono-Regular.ttf);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Nunito', 'Courier';
+    font-weight: 500;
+    overflow-x: hidden;
+}
+
+code {
+    background-color: #fdedf2;
+    font-family: 'Courier';
+    border-radius: 0.6em;
+    padding: 0.2em 0.4em;
+    margin: 0 0.1em;
+    border-left: 2px solid lightblue;
+}
+
+
+pre > code, pre code {
+    padding: 0;
+    margin:0;
+    border: none;
+}
+
+blockquote {
+    background-color: #fdedf2;
+    padding: 0.1em 1em;
+    margin: 0.4em 0;
+    border-radius: 0.6em;
+    border-left: 3px solid lightskyblue;
+}
+
+blockquote code {
+    padding: 0;
+    font-weight: 600;
+    margin:0;
+    border: none;
+}
+
+p {
+    margin: 9px 0;
+    line-height: 1.7em;
+}
+
+a {
+    text-underline-offset: 0.18em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 8px 0;
+}
+
+
+@media screen and (max-width: 476px) {
+    h1 {
+        font-size: 5.5vw;
+        margin: 8px 0;
+    }
+
+    h2 {
+        font-size: 5vw;
+        margin: 8px 0;
+    }
+
+    h3 {
+        font-size: 4.5vw;
+        margin: 8px 0;
+    }
+
+    h4 {
+        font-size: 4vw;
+        margin: 8px 0;
+    }
+
+    h5 {
+        font-size: 3.5vw;
+        margin: 8px 0;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    ul {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+
+
+.icon {
+    width: 19px;
+    height: 19px;
+}
+
+body::-webkit-scrollbar {
+    width: 0;
+}
+
+.auto_w {
+    width: 1140px;
+}
+
+@media screen and (max-width:1140px) {
+    .auto_w {
+        width: 100%;
+    }
+}
+
+
+.background {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Cpath fill-opacity='.07' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'/%3E%3C/svg%3E");
+}

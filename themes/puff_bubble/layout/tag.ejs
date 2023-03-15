@@ -1,0 +1,8 @@
+
+
+        <ul class="posts">
+            <% site.tags.findOne({name: page.tag}).posts.forEach(function(post) { %>
+                <%- partial('partial/post_box', {post: post, bg_color: 'white' }) %>
+            <% }) %>        
+        </ul>
+

@@ -1,0 +1,21 @@
+.sider_box {
+    display: flex;
+    border: 1px solid rgb(244, 233, 233);
+    flex-direction: column;
+    flex-shrink: 0;
+    padding: 15px 20px;
+    border-radius: 13px;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 3px rgb(231, 220, 220);
+}
+
+.sider_box:hover {
+    box-shadow: 0.5px 0.5px 5px rgb(228, 213, 213),
+        -0.5px -0.5px 5px rgb(228, 213, 213);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.sider_box span:first-child {
+    font-weight: bold;
+}

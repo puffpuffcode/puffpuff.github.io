@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%- config.title %>
+    </title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/prism/prism.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/post_box.css">
+    <link rel="stylesheet" href="/css/sider_box.css">
+    <link rel="stylesheet" href="/css/welcome.css">
+    <link rel="stylesheet" href="/css/tail.css">
+    <script src="/prism/prism.js"></script>
+</head>
+
+<body>
+    <%- partial('partial/bg',{bg_color:'#FEF8F9'})  %>
+    <%- partial('partial/header') %>
+    <%- partial('partial/welcome')  %>
+    <div class="main">
+        <div class="main-content">
+            <ul class="posts">
+                <%- body %>
+            </ul>
+            <div class="sider">
+                <div class="archives">
+                    <%- partial('partial/sider_box', {bg_color: 'white' , title: 'Archives' ,content:
+                        list_archives({class: 'av_date' , style: false, separator:'' ,show_count:false})}) %>
+                </div>
+                <div class="tags">
+                    <%- partial('partial/sider_box', {bg_color: 'white' , title: 'Tags' ,content: list_tags(site.tags,
+                        {class: 'tag' , style: false, separator:'',show_count: false})}) %>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <%- partial('partial/tail') %>
+</body>
+
+
+</html>
