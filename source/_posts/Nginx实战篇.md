@@ -1,16 +1,9 @@
 ---
 title: Nginx实战篇
 date: 2023-01-12 07:44:59
-author:
-tags: Nginx
-categories: 
-post_link:
-description:
-header:
-mathjax:
-copyright:
-sticky:
-reward_setting:
+tags: 
+    - Nginx
+pinned: 
 ---
 <!--more-->
 # 使用 Nginx 的正确姿势

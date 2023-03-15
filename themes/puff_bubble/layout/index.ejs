@@ -1,7 +1,16 @@
+<% page.posts.each(post=> { %>
+    <% if(post.pinned) { %>
+        <%- partial('partial/post_box', {post: post, bg_color: 'white', pinned: true }) %>
+    <% } %>
+<% }); %>
 
-    <% page.posts.sort('date', -1).each(post=> { %>
-        <%- partial('partial/post_box', {post: post, bg_color: 'white' }) %>
-            <% }); %>
-                <div class="page_nav">
-                    <%- paginator() %>
-                </div>
+<% page.posts.each(post=> { %>
+    <% if(!post.pinned) { %>
+        <%- partial('partial/post_box', {post: post, bg_color: 'white', pinned: false }) %>
+    <% } %>
+<% }); %>
+
+<!-- pagination -->
+<div class="page_nav">
+    <%- paginator() %>
+</div>

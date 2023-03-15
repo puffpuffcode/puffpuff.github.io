@@ -7,6 +7,7 @@
 }
 
 .posts {
+    position: sticky;
     list-style: none;
     flex: 1 1 auto;
     max-width: 800px;
@@ -44,6 +45,10 @@
 
 .page_nav > span {
     font-weight: bolder;
+}
+
+.page_nav {
+    margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 968px) {
