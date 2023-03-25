@@ -22,7 +22,7 @@ Initialized empty Git repository in C:/Users/shiot/Desktop/hexo/blog/.git/
 
 将本地仓库与远程仓库关联。
 ```bash
-hiot@DESKTOP-IOE514E MINGW64 ~/Desktop/hexo/blog (master)
+shiot@DESKTOP-IOE514E MINGW64 ~/Desktop/hexo/blog (master)
 $ git remote add origin git@github.com:puffpuffcode/puffpuffcode.github.io.git
 ```
 
