@@ -44,8 +44,8 @@
     
 
     <h1 class="post_title">
-        <a href="/2023/03/13/interview-summary/">
-            面试总结
+        <a href="/2023/04/01/%E4%B8%80%E4%BA%9B%E7%89%A2%E9%AA%9A/">
+            一些牢骚
         </a>
     </h1>
 
@@ -64,63 +64,50 @@
                     fill="#3D3A39" p-id="2769"></path>
             </svg>
             
-                <a class="tag" href="/tags/Interview">
-                    Interview
+                <a class="tag" href="/tags/%E6%97%A5%E8%AE%B0">
+                    日记
                 </a>
                 
-                <a class="tag" href="/tags/Summary">
-                    Summary
+                <a class="tag" href="/tags/%E5%BF%83%E6%83%85">
+                    心情
                 </a>
                 
-                <div class="pub_time"> Mar 13th 2023, 13:03</div>
+                <div class="pub_time"> Apr 1st 2023, 16:04</div>
         </div>
 
-        <h2 id="3-月-11-日，面试-上海乐客旅行-Golang-工程师"><a href="#3-月-11-日，面试-上海乐客旅行-Golang-工程师" class="headerlink" title="3 月 11 日，面试 上海乐客旅行 Golang 工程师"></a>3 月 11 日，面试 上海乐客旅行 Golang 工程师</h2><h3 id="笔试环节"><a href="#笔试环节" class="headerlink" title="笔试环节"></a>笔试环节</h3><p>一共是四题，大体都很简单，只是第二题有点懵。</p>
-<ul>
-<li><p>手写冒泡，很基础的题。</p>
-</li>
-<li><p>实现 document.getElementById() ，懵了。</p>
-</li>
-<li><p>以 O(1) 的时间复杂度从栈中取出最大或最小的元素。<br>我给的答案是维护一个单调递减栈和一个单调递增栈和一个普通栈。<br>当添加元素时，查看单调递减栈的栈顶的元素是否大于当前要添加的元素，大于则压入栈单调递减栈，再压入普通栈。单调递增栈的操作与其相反。如需要弹出栈，则比较普通栈的栈顶元素是否与单调递增栈、单调递减栈的栈顶元素相等，如相等，对应单调栈也应弹出。总体实现取出最大或最小元素 O(1) 时间复杂度。</p>
-</li>
-<li><p>一堆硬币中找出假硬币，经典二分查找法。</p>
-</li>
-</ul>
-<h3 id="自我介绍环节"><a href="#自我介绍环节" class="headerlink" title="自我介绍环节"></a>自我介绍环节</h3><p>balabalabalabala.</p>
-<h3 id="提问环节"><a href="#提问环节" class="headerlink" title="提问环节"></a>提问环节</h3><ul>
-<li><p>A: 你是从什么地方了解 Golang 的？Golang 的优点？<br>Q1: 从程序员社区了解。<br>Q2: 语法简洁，容易学习，运行高效、安全、跨平台，在并发场景易用性高。总体来说取决于应用场景。</p>
-</li>
-<li><p>A: 如何尽量减小结构体所占的内存？<br>Q: 传入大对象用指针，小对象用结构体；使用基本数据类型，比如 int32 而不是 int；尽量使内存对齐。</p>
-</li>
-<li><p>A: 内存对齐的原理？<br>Q: 结构体的对齐大小等于其最长字段的对齐大小。如果一个字段的大小超过了其前面字段的对齐方式，则该字段会被放在下一个对齐位置开始的位置上；如果一个字段的大小不是结构体的对齐大小的整数倍，则会添加 padding 补充。Golang 中会自动进行内存对齐。</p>
-</li>
-<li><p>A: 有个任务，超时之后取消，该怎么做？</p>
-</li>
-<li><p>Q: 使用 Context.WithTimeout()，将 context 传入任务方法中，函数尾部用 select 进行阻塞，如果超时了，满足 select 中的 case: &lt;- context.Down()，结束超时任务。</p>
-</li>
-<li><p>A: 限制一段时间内一个客户端只能发十次请求该怎么做？</p>
-</li>
-<li><p>Q: 创建一个 map，key 为 ip，value 是包含两个字段：近期第一次请求时间、近期请求次数。前端发来请求时，先判断时间是否超过了十分钟，超过则刷新请求次数，否则查看请求次数是否超过10，超过则拦截。（不知道有没有更好的办法）</p>
-</li>
-<li><p>A: Mysql 如何优化查询速度</p>
-</li>
-<li><p>Q: 加一层 Redis缓存；字段加索引，查询时覆盖索引，保证查询语句里面的字段都在索引文件中；优化查询语句，比如先查索引中包含的字段，在子查询中判断接下来的查询逻辑。</p>
-</li>
-<li><p>A: 怎么检查是否已经覆盖索引？</p>
-</li>
-<li><p>Q: 使用 explain，<code>explain select id, name from user where name = &#39;puffpuff&#39;</code>。</p>
-</li>
-</ul>
-<h4 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h4><p>准备不太充分😥。  </p>
-<ul>
-<li><p>Q: 如何实现给帖子按热度排序？</p>
-</li>
-<li><p>Q: 帖子热度在什么时候刷新？</p>
-</li>
-</ul>
-<h3 id="面试官评价"><a href="#面试官评价" class="headerlink" title="面试官评价"></a>面试官评价</h3><blockquote>
-<p>基础不错，项目准备不充分。</p>
+        <p><img src="/images/3-25_view1.jpg" alt="https://w.wallhaven.cc/full/jx/wallhaven-jxwoxp.jpg"></p>
+<div style="text-align:right">Shot on iphone 13 mini in 新昌，绍兴.</div>
+
+<span id="more"></span>
+
+
+<blockquote>
+<p>再回首，大学四年已是身后之影。如昨日，如梦，如泡影。</p>
 </blockquote>
+<p>转眼间即将毕业。</p>
+<p>历经一个多月的找工作后，我才明白今年的形势有如此艰难。沟通了几百家公司，却只有数十家接受简历，更别提寥寥无几的面试了。</p>
+<p>我很差吗？也许并不是。没有足够的竞争力吗？我想是的。但不得不承认，总有比你更优秀的人，他&#x2F;她们更努力，更优秀。</p>
+<p>感觉被困在无休止的求职循环中可能会让人感到沮丧，对大多数人来说都是如此。</p>
+<p>也许我可以做的一件事是退后一步，评估自己的目标和优先事项（是时候仔细考虑了）。我也考虑过申请与自己价值观和兴趣相符合的工作，但屡屡碰壁。也是否考虑过不同行业或角色<del>，这些可能以前没有想过</del>。仅仅靠兴趣不可行。</p>
+<blockquote>
+<p>试着走重复的路？</p>
+</blockquote>
+<p>昨晚收到某度的 HR 好友申请。试着沟通了一下，也拜托对方给我的简历一些修改的一件。最后谈及没有学历优势，去做开发真的是死路一条。</p>
+<p>或许考研是一条提升竞争力出路，在某些人眼里却视为逃避的手段。去年考完后得知分数线却暴涨 20 分，我失败了。接受自己的失败是一件十分困难的事，重新挑战亦使人连连后退。再来一次吗？我问自己。期间是按部就班还是双线并行，难以抉择。</p>
+<p>也许有人会自降身段，进入不合适的公司。扪心自问，我不会将就，如 某商的 Slogan <code>Never Settle</code>，这里就不吐槽了。</p>
+<p>看到这里，相信或许有人会对此深感鄙夷，One OS：这小子没经过社会毒打。道理我都懂，有了家长和身边朋友们的支持，这或许都不是问题。</p>
+<blockquote>
+<p>重拾信心！</p>
+</blockquote>
+<p>一直将全心投入找工作也不是办法，于是我决定去转换一下心情，拾起被我抛在脑后的夜跑，或是打开电视，拿起健身环。从明天开始，注入七分的专注到考研数学的复习中，留三分给找工作的时间。为什么不是今天开始？明日复明日，明日何其多。想着借此机会，恢复生物钟，杀死先前半夜 2~3 点时间段才睡觉的那个我。</p>
+<blockquote>
+<p>Live a life you will remeber.</p>
+</blockquote>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=86 src="//music.163.com/outchain/player?type=2&id=1826923389&auto=0&height=66"></iframe>
+
+<p>也许结果不尽人意，经历也是一段成长，至少不仅仅是慰藉。</p>
+<p>可多数人只在意结果，我也是其中之一。</p>
+<p>失败了，再去接受曾经的自己，其实也不晚。</p>
 
 
         <!-- disqus -->

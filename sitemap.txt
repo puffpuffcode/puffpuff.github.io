@@ -1,3 +1,4 @@
+http://puffpuffcode.github.io/2023/04/01/%E4%B8%80%E4%BA%9B%E7%89%A2%E9%AA%9A/
 http://puffpuffcode.github.io/2023/03/15/how-to-backup-your-hexo/
 http://puffpuffcode.github.io/2023/01/12/Nginx%E5%AE%9E%E6%88%98%E7%AF%87/
 http://puffpuffcode.github.io/links/index.html
@@ -18,4 +19,6 @@ http://puffpuffcode.github.io/tags/Interview/
 http://puffpuffcode.github.io/tags/Summary/
 http://puffpuffcode.github.io/tags/Hexo/
 http://puffpuffcode.github.io/tags/Backup/
+http://puffpuffcode.github.io/tags/%E6%97%A5%E8%AE%B0/
+http://puffpuffcode.github.io/tags/%E5%BF%83%E6%83%85/
 http://puffpuffcode.github.io/categories/Web/
